@@ -13,4 +13,4 @@ Lib used :
 
 Fully GDPR Compliant
 
-Repository creation in progress, code coming soon
+This project is still a work in progress but main wordpress features works.
