@@ -11,6 +11,6 @@ Lib used :
   - Webfont-Loader
 
 
-Fully GDPR Complant
+Fully GDPR Compliant
 
 Repository creation in progress, code coming soon
