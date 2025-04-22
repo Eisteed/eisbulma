@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+@use "../bulma-cfg" as *;
+
+// WooCommerce form elements
+.woocommerce {
+  // Form elements
+  form {
+    .form-row {
+      margin-bottom: 1rem;
+      
+      label {
+        @extend .label;
+        font-weight: 500;
+      }
+      
+      .input-text {
+        @extend .input;
+        @extend .is-primary;
+        &.qty {
+          width: 5em;
+          text-align: center;
+        }
+      }
+      
+      textarea {
+        @extend .textarea;
+      }
+      
+      select {
+        @extend .select;
+        display: block;
+        width: 100%;
+      }
+      
+      &.woocommerce-invalid {
+        .input-text, select {
+          border-color: $danger;
+        }
+      }
+      
+      &.woocommerce-validated {
+        .input-text, select {
+          border-color: $success;
+        }
+      }
+    }
+    
+    .password-input {
+      position: relative;
+      width: 100%;
+      
+      .show-password-input {
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+        cursor: pointer;
+      }
+    }
+  }
+  
+  // Coupon form
+  .coupon {
+    display: flex;
+    margin-bottom: 1rem;
+    
+    .input-text {
+      @extend .input;
+      margin-right: 0.5rem;
+    }
+    
+    .button {
+      @extend .button;
+      @extend .is-light;
+    }
+  }
+  
+  // Search form
+  .woocommerce-product-search {
+    position: relative;
+    
+    .search-field {
+      @extend .input;
+      width: 100%;
+    }
+    
+    button {
+      @extend .button;
+      @extend .is-primary;
+      margin-top: 0.5rem;
+    }
+  }
+  
+  // Login form
+  .woocommerce-form-login {
+    max-width: 480px;
+    
+    .woocommerce-form-login__rememberme {
+      display: block;
+      margin-bottom: 1rem;
+    }
+  }
+}

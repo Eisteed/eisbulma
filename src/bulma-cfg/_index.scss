@@ -1,0 +1,48 @@
+@use "colors";
+@use "size";
+@use "breakpoints";
+@use "typography";
+
+$custom-colors: (
+  "secondary": (
+    colors.$secondary
+  )
+);
+
+// Set every vars + add a custom secondary one
+@forward "../../lib/bulma/sass/utilities" with (
+  $custom-colors: $custom-colors,
+  $grey-dark: colors.$grey-dark,
+  $grey-light: colors.$grey-light,
+  $primary: colors.$primary,
+  $link: colors.$link,
+  $size-1: size.$size-1,
+  $size-2: size.$size-2,
+  $size-3: size.$size-3,
+  $size-4: size.$size-4,
+  $size-5: size.$size-5,
+  $size-6: size.$size-6,
+  $widescreen-enabled: breakpoints.$widescreen-enabled,
+  $fullhd-enabled: breakpoints.$fullhd-enabled,
+  $family-primary: typography.$family-primary
+);
+
+// Remove anything unused
+@forward "../../lib/bulma/sass/base";
+@forward "../../lib/bulma/sass/components";
+@forward "../../lib/bulma/sass/elements";
+@forward "../../lib/bulma/sass/form";
+@forward "../../lib/bulma/sass/grid";
+@forward "../../lib/bulma/sass/helpers";
+@forward "../../lib/bulma/sass/layout";
+
+// Final forward
+//@forward "../../lib/bulma/sass/themes";
+
+@use "../../lib/bulma/sass/themes/light";
+@use "../../lib/bulma/sass/themes/setup";
+
+:root {
+  @include light.light-theme;
+  @include setup.setup-theme;
+}

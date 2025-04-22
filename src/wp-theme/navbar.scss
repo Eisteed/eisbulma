@@ -1,0 +1,48 @@
+@use "../../lib/bulma/sass/utilities/mixins" as *;
+
+.navbar {
+
+    .navbar-item.is-active {
+            color: var(--bulma-primary-invert);
+            text-decoration-line: underline;
+            text-underline-offset: 0.2rem;
+        }
+
+    .navbar-menu {
+        box-shadow: none;
+        animation: ease-in-out 1s;
+    }
+}
+
+
+.navbar-item.is-hoverable:hover .navbar-dropdown .navbar-dropdown {
+    display: none;
+    @include mobile{
+        display:block;
+    }
+  }
+  
+  .navbar-dropdown .navbar-item.is-hoverable:hover > .navbar-dropdown {
+    display: block;
+  }
+  
+  .navbar-dropdown .navbar-item .navbar-dropdown {
+    top: -10px;
+    left: 100%;
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    white-space: nowrap;
+  }
+  
+  .navbar-dropdown .navbar-item.has-dropdown {
+    padding: 0;
+  }
+  
+  .navbar-dropdown .navbar-item.has-dropdown > .navbar-link {
+    width: 100%;
+  }
+  
+  .navbar-dropdown .navbar-item.has-dropdown > .navbar-link:not(.is-arrowless) {
+    padding-right: 2.5em;
+  }

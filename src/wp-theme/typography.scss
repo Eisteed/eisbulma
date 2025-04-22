@@ -1,0 +1,71 @@
+@use "../../lib/bulma/sass/utilities/mixins" as *;
+
+html {
+	font-size: var(--bulma-size-6);
+}
+
+body {
+	font-size: var(--bulma-body-font-size);
+	font-weight: var(--bulma-body-weight);
+	margin: 0;
+	color: var(--bulma-text);
+	font-family: var(--bulma-family-primary);
+	line-height: var(--bulma-body-line-height);
+	overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+
+h1 , .content h1 {
+	font-size: var(--bulma-size-1);
+	@include mobile{
+		font-size: calc(var(--bulma-size-1) * 0.75);
+	}
+}
+h2 , .content h2 {
+	font-size: var(--bulma-size-2);
+}
+h3 , .content h3 {
+	font-size: var(--bulma-size-3);
+}
+h4 , .content h4 {
+	font-size: var(--bulma-size-4);
+}
+h5 , .content h5 {
+	font-size: var(--bulma-size-5);
+}
+h6 , .content h6 {
+	font-size: var(--bulma-size-6);
+}
+
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: var(--bulma-text);
+	font-family: var(--bulma-family-primary);
+	font-weight: 400;
+	line-height: var(--bulma-body-line-height);
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+.footer{
+	
+    a{
+        color: rgb(219, 219, 219);
+		&:hover{
+			color:var(--bulma-link);
+		}
+    }
+}

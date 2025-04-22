@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+// Import variables and necessary Bulma modules
+@use "../bulma-cfg" as *;
+// @use "../bulma/sass/utilities" as *;
+// @use "../bulma/sass/elements/content" as *;
+// @use "../bulma/sass/helpers/typography" as *;
+// @use "../bulma/sass/helpers/color" as *;
+// @use "../bulma/sass/components/pagination" as *;
+
+// WooCommerce helper classes
+.woocommerce {
+  // Result count and ordering
+  .woocommerce-result-count {
+    @extend .has-text-grey;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  
+  .woocommerce-ordering {
+    margin-bottom: 1.5rem;
+    
+    select {
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid $grey-lighter;
+    }
+  }
+  
+  // Notices wrapper
+  .woocommerce-notices-wrapper {
+    margin-bottom: 1.5rem;
+  }
+  
+  // Star rating
+  .star-rating {
+    overflow: hidden;
+    position: relative;
+    height: 1.25em;
+    line-height: 1;
+    width: 5.75em;
+    font-family: star;
+    color: $warning;
+    
+    &::before {
+      content: "★★★★★";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: $grey-lighter;
+    }
+    
+    span {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-top: 1.5em;
+      
+      &::before {
+        content: "★★★★★";
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+  
+  // Ratings
+  .woocommerce-product-rating {
+    display: flex;
+    align-items: center;
+    
+    .star-rating {
+      margin-right: 0.5rem;
+    }
+    
+    .woocommerce-review-link {
+      font-size: 0.875rem;
+      color: $grey-dark;
+    }
+  }
+  
+  // Price formatting
+  .price {
+    font-weight: 600;
+    
+    del {
+      color: $grey;
+      margin-right: 0.5rem;
+      font-weight: normal;
+      opacity: 0.7;
+    }
+    
+    ins {
+      color: $danger;
+      text-decoration: none;
+    }
+  }
+  
+  // Pagination
+  .woocommerce-pagination {
+    @extend .pagination;
+    margin-top: 2rem;
+    
+    ul.page-numbers {
+      @extend .pagination-list;
+      
+      li {
+        margin: 0 0.25rem;
+        
+        .page-numbers {
+          @extend .pagination-link;
+          
+          &.current {
+            @extend .is-current;
+          }
+        }
+        
+        .prev {
+          @extend .pagination-previous;
+        }
+        
+        .next {
+          @extend .pagination-next;
+        }
+      }
+    }
+  }
+  
+  // On sale badge
+  .onsale {
+    background-color: $danger;
+    color: $white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 5;
+  }
+}

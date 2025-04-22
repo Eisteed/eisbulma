@@ -1,0 +1,22 @@
+@use "../bulma-cfg" as *;
+
+div.woocommerce {
+  .product {
+    position: relative;
+
+    .onsale {
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      z-index: 2;
+      padding: map-get($spacing-values, "3");
+
+    }
+
+    .price {
+      font-size: var(--bulma-size-5);
+    }
+  }
+}
