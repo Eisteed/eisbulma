@@ -1,4 +1,20 @@
+@use "../../lib/bulma/sass/utilities/mixins" as *;
 
 .container{
-	max-width:2000px;
+	max-width:1250px;
 }
+
+// Visually debug breakpoints
+// .breakpointdebug{
+// 	height: 5px;
+// 	width: 100%;
+// 	@include mobile{
+// 		background-color: green;
+// 	}
+// 	@include tablet{
+// 		background-color: red;
+// 	}
+// 	@include desktop{
+// 		background-color: blue;
+// 	}
+// }

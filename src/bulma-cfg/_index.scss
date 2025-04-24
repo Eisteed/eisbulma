@@ -22,6 +22,11 @@ $custom-colors: (
   $size-4: size.$size-4,
   $size-5: size.$size-5,
   $size-6: size.$size-6,
+  $gap: breakpoints.$gap,
+  $tablet:breakpoints.$tablet,
+  $desktop: breakpoints.$desktop,
+  $widescreen: breakpoints.$widescreen,
+  $fullhd: breakpoints.$fullhd,
   $widescreen-enabled: breakpoints.$widescreen-enabled,
   $fullhd-enabled: breakpoints.$fullhd-enabled,
   $family-primary: typography.$family-primary
@@ -36,9 +41,10 @@ $custom-colors: (
 @forward "../../lib/bulma/sass/helpers";
 @forward "../../lib/bulma/sass/layout";
 
-// Final forward
+// Light + Dark Theme
 //@forward "../../lib/bulma/sass/themes";
 
+// Light Theme Only
 @use "../../lib/bulma/sass/themes/light";
 @use "../../lib/bulma/sass/themes/setup";
 

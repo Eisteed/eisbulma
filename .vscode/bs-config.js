@@ -3,7 +3,7 @@ module.exports = {
     target: "http://test.local/",
   },
   files: ["../**/**"],
-  reloadDelay: 100,
+  //reloadDelay: 100,
   injectChanges: true,
   notify: false,
   open: false,

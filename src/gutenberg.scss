@@ -2,7 +2,7 @@
 
 // Boutons
 .editor-post-title{
-    @extend .title;
+    font-size: var(--bulma-size-1);
 }
 .wp-block-button .wp-block-button__link {
     @extend .button;
