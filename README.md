@@ -1,16 +1,22 @@
 # eisbulma
-Wordpress Theme using Bulma Css. 
-Supports blocks, woocommerce, addonify floating cart.
+Wordpress Theme using Bulma Css.
+- Supports editing with gutenberg blocks (native block stylized with bulmacss)
+- Woocommerce ready with floating cart, ajax search, product filters.
 
-Lib used :
-  - AOS
-  - Bulma (1.0.3)
-  - Comment Walker
-  - Font Awesome
-  - Nav Walker
-  - Webfont-Loader
+Use vite to dev & build for production
 
+1. Clone repo
+2. npm init
+3. Use local-wp to run local wordpress site
+4. Edit vite.config.js & set const HOST & username 
+5. **npm run dev**
+6. Navigate to your local-wp site check console to see if vite is running.
+6. **npm run build** to compile assets using vite (just stop vite to see local site using dist assets)
 
-Fully GDPR Compliant
+7. **npm run upload** to upload file to remote (rsync)
+8. **npm run deploy** to build + upload to remote (rsync)
 
-This project is still a work in progress but main wordpress features works.
+*TO USE UPLOAD FEATURE :* 
+- Install rsync, configure your remote.
+- EDIT package.json line 29 and change remote name / path
+"upload": "rclone sync ./ remote:/www/wp-content/themes/eisbulma [...]

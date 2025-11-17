@@ -26,7 +26,7 @@
     "watch:editor": "sass --watch src/styles/gutenberg-editor-bulma.scss:src/styles/gutenberg-editor-bulma.css --no-source-map --load-path=node_modules",
     "build:editor": "sass src/styles/gutenberg-editor-bulma.scss:src/styles/gutenberg-editor-bulma.css --no-source-map --load-path=node_modules",
     "build": "cross-env NODE_ENV=production vite build",
-    "upload": "rclone sync ./ wolz:/www/wp-content/themes/eisbulma --exclude \"node_modules/**\" --exclude \".vscode/**\" --exclude \".git/**\" --delete-excluded",
+    "upload": "rclone sync ./ remote:/www/wp-content/themes/eisbulma --exclude \"node_modules/**\" --exclude \".vscode/**\" --exclude \".git/**\" --delete-excluded",
     "deploy": "npm run build:editor && npm run build && npm run upload",
     "preview": "vite preview --host"
   },

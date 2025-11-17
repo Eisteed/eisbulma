@@ -39,46 +39,47 @@
 			<div class="column is-9">
 				<div class="columns is-multiline">
 					<div class="column is-6 is-3-desktop mb-5">
-						<h4 class="is-size-4 has-text-weight-bold mb-4">La societé</h4>
+						<h4 class="is-size-4 has-text-weight-bold mb-4">The Company</h4>
 						<ul>
-							<li class="mb-2"><a href="<?php echo get_site_url(); ?>/lentreprise-dr-wolz/">A propos</a></li>
+							<li class="mb-2"><a href="<?php echo get_site_url(); ?>/">About</a></li>
 							<li class="mb-2"><a href="<?php echo get_site_url(); ?>/blog">Blog</a></li>
 							<li><a href="<?php echo get_site_url(); ?>/contact">Contact</a></li>
 						</ul>
 					</div>
 					<div class="column is-6 is-3-desktop mb-5">
-						<h4 class="is-size-4 has-text-weight-bold mb-4">Boutique</h4>
+						<h4 class="is-size-4 has-text-weight-bold mb-4">Shop</h4>
 						<ul>
-							<li class="mb-2"><a href="<?php echo get_site_url(); ?>/boutique">Nos produits</a></li>
-							<li class="mb-2"><a href="<?php echo get_site_url(); ?>/mon-compte">Mon compte</a></li>
-							<li class=""><a href="<?php echo get_site_url(); ?>/mon-compte">S'inscrire</a></li>
+							<li class="mb-2"><a href="<?php echo get_site_url(); ?>/shop">Our products</a></li>
+							<li class="mb-2"><a href="<?php echo get_site_url(); ?>/my-account">My account</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/my-account">Sign up</a></li>
 						</ul>
 					</div>
 					<div class="column is-6 is-3-desktop mb-5">
 						<h4 class="is-size-4 has-text-weight-bold mb-4">Legal</h4>
 						<ul>
-							<li class="mb-2"><a href="<?php echo get_site_url(); ?>/cgv">CGV</a></li>
-							<li class="mb-2"><a href="<?php echo get_site_url(); ?>/mentions-legales">Mentions Legales</a></li>
-							<li><a href="<?php echo get_site_url(); ?>/protection-des-donnees">Protection des données</a></li>
-
+							<li class="mb-2"><a href="<?php echo get_site_url(); ?>/terms">Terms & Conditions</a></li>
+							<li class="mb-2"><a href="<?php echo get_site_url(); ?>/legal">Legal Notice</a></li>
+							<li><a href="<?php echo get_site_url(); ?>/data">Data Protection</a></li>
 						</ul>
 					</div>
 					<div class="column is-6 is-3-desktop mb-5">
 						<h4 class="is-size-4 has-text-weight-bold mb-4">Contact</h4>
 						<ul>
-							<li class="mb-2"><a href="mailto:info@wolz.fr">info@wolz.fr</a></li>
-							<li class="mb-2"><a href="tel:0033450339642">04 50 33 96 42</a></li>
-							<li><a href="https://maps.app.goo.gl/bAuc1TgTDUm32F7g6">19 rue de l'annexion <br>74000 ANNECY<br> FRANCE</a></li>
-
+							<li class="mb-2"><a href="mailto:contact@example.com">contact@example.com</a></li>
+							<li class="mb-2"><a href="tel:003301">01 01 01 01 01</a></li>
+							<li>
+								<a href="#">
+									6 avenue des hirondelles<br>74000 ANNECY<br> FRANCE
+								</a>
+							</li>
 						</ul>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<div class="pb-3 has-text-centered is-size-6">
-			<p class="p-2">Tout droits reservés © Wolz France <?php echo date('Y'); ?></p>
-			<p> <a href="https://biscor.nu/">Web Design by Biscor.nu</a></p>
+			<p class="p-2">All right reserved © Eisteed France <?php echo date('Y'); ?></p>
+			<p> <a href="https://eisteed.com/">Web Design by Eisteed</a></p>
 		</div>
 	</div>
 </footer>

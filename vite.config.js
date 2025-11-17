@@ -4,10 +4,12 @@ import fullReload from 'vite-plugin-full-reload';
 import { readFileSync } from 'node:fs';
 
 // ====== Site Config ======
-const HOST = 'wolz.local';
+const HOST = 'local.wp';
+const username = 'username';
+
 const PORT = 5173;
-const HTTPS_KEY_PATH = `C:/Users/eisteed/AppData/Roaming/Local/run/router/nginx/certs/${HOST}.key`;
-const HTTPS_CERT_PATH = `C:/Users/eisteed/AppData/Roaming/Local/run/router/nginx/certs/${HOST}.crt`;
+const HTTPS_KEY_PATH = `C:/Users/${username}/AppData/Roaming/Local/run/router/nginx/certs/${HOST}.key`;
+const HTTPS_CERT_PATH = `C:/Users/${username}/AppData/Roaming/Local/run/router/nginx/certs/${HOST}.crt`;
 // ==========================
 
 export default defineConfig(({ command }) => {
