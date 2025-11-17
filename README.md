@@ -4,10 +4,9 @@ Wordpress Theme using Bulma Css.
 - Woocommerce ready with floating cart, ajax search, product filters.
 
 Use vite to dev & build for production
-
-1. Clone repo
-2. npm init
-3. Use local-wp to run local wordpress site
+1. Use local-wp to run local wordpress site
+2. Clone repo to wp-content/theme folder
+3. npm init
 4. Edit vite.config.js & set const HOST & username 
 5. **npm run dev**
 6. Navigate to your local-wp site check console to see if vite is running.
