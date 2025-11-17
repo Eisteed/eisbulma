@@ -1,0 +1,79 @@
+@media (max-width: var(--bulma-mobile)){
+  .columns.reverse-on-mobile {     display: flex;
+    flex-direction: column-reverse; }
+}
+
+
+/* Fallback for older browsers */
+.is-fullwidth-breakout{
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+}
+
+/* Modern, more accurate: device viewport size */
+@supports (width: 100dvw) {
+  .is-fullwidth-breakout{
+    width: 100dvw !important;
+    margin-left: calc(50% - 50dvw) !important;
+    margin-right: calc(50% - 50dvw) !important;
+  }
+}
+
+/* Centered Menu */
+.navbar.has-centered-menu {
+  .navbar-start {
+    flex-grow: 1 !important;
+    justify-content: center !important;
+  }
+}
+
+/* Centered Logo Collapsed*/
+.navbar.has-centered-logo {
+  .navbar-start,
+  .navbar-end{
+    flex: 1 1 0;
+  }
+  .navbar-start {
+    justify-content: flex-end;
+  }
+  .navbar-end {
+    justify-content: flex-start;
+  }
+  .navbar-start:after,
+  .navbar-end:before{
+    content:'';
+    display:inline-block;
+  }
+
+}
+
+/* Centered Logo Expanded*/
+.navbar.has-centered-logo-alt {
+  .navbar-start,
+  .navbar-end{
+    flex: 1 1 0;
+  }
+}
+
+/* Centered Logo Above */
+.navbar.has-logo-above {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centered Logo With additional Menu*/
+.navbar.has-centered-logo-alt2 {
+  .navbar-menu {
+    flex-wrap: wrap;
+  }
+  .navbar-start,
+  .navbar-end{
+    flex: 1 1 0;
+  }
+  .navbar-wide.navbar-start {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}

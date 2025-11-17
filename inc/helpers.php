@@ -109,3 +109,26 @@ function eisbulma_primary_navigation_fallback() {
 
 	echo '</div>';
 }
+
+
+// Add delete to comment
+if ( ! function_exists( 'get_delete_comment_link' ) ) {
+  function get_delete_comment_link( $comment_id = 0 ) {
+    $comment = get_comment( $comment_id );
+    if ( ! $comment ) {
+      return '';
+    }
+
+    // URL d’admin pour mettre le commentaire à la corbeille
+    $url = admin_url( "comment.php?action=trash&c={$comment->comment_ID}" );
+    $url = wp_nonce_url( $url, "trash-comment_{$comment->comment_ID}" );
+
+    return $url;
+  }
+}
+
+
+add_filter('get_custom_logo', function ($html) {
+	// retire width="…" et height="…" de la balise <img>
+	return preg_replace('/(width|height)="\d*"\s/', '', $html);
+});

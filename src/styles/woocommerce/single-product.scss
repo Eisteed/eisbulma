@@ -1,0 +1,99 @@
+  .woocommerce {
+
+      --maxvh: calc(80svh);
+
+
+      /* Maximum height for product images */
+
+      .woocommerce-product-gallery {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+      }
+
+      /* Make images fill width normally; shrink when the height cap hits */
+      .woocommerce-product-gallery__image img {
+          display: inline-block;
+          max-width: 100%;
+          width: 100%;
+          height: auto;
+          max-height: var(--maxvh);
+          object-fit: contain;
+          /* no cropping */
+      }
+
+
+
+      /* Optional: hide desktop hover-zoom on touch devices */
+      @media (hover: none) {
+          .zoomImg {
+              display: none !important;
+          }
+      }
+
+      // Main image wrapper
+      .woocommerce-product-gallery__wrapper {
+          flex: 1;
+      }
+
+      // Thumbnail container
+      .flex-control-nav.flex-control-thumbs {
+          margin: 0 0;
+          padding: 0 0;
+          display: flex;
+          flex-direction: rows;
+          gap: 0.5rem;
+          max-width: 15rem;
+          flex-shrink: 0;
+          list-style: none;
+
+          li {
+              width: 100%;
+              height: auto;
+
+              img {
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                  cursor: pointer;
+              }
+          }
+      }
+
+      .pagination li {
+          margin-top: 0;
+      }
+
+      .product_meta {
+          display: flex;
+          flex-direction: column;
+      }
+  }
+
+
+
+  .woocommerce-product-gallery__trigger {
+      span {
+          display: none !important;
+      }
+
+      padding: 1rem 1rem;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 20px;
+      height: 20px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%23000' viewBox='0 0 256 256'><path d='M216,48V96a8,8,0,0,1-16,0V67.31l-50.34,50.35a8,8,0,0,1-11.32-11.32L188.69,56H160a8,8,0,0,1,0-16h48A8,8,0,0,1,216,48ZM106.34,138.34,56,188.69V160a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16H67.31l50.35-50.34a8,8,0,0,0-11.32-11.32Z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 20px;
+      z-index: 1;
+  }
+
+  .woocommerce-message {
+      .message-body {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+      }
+  }

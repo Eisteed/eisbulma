@@ -1,0 +1,20 @@
+pre {
+  overflow-x: auto;         // show a scrollbar if the line is longer
+  white-space: pre;         // keep original formatting (no wrap)
+  word-wrap: normal;        // don’t break long tokens
+}
+
+.wp-element-caption {
+  font-size: 0.875rem;
+  color: var(--bulma-grey-dark);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.site-content iframe {
+  max-width:100%;
+}
+
+.content a:hover{
+  color:var(--bulma-link-70);
+}

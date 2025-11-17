@@ -1,0 +1,17 @@
+// Fix broken bulma columns on mobile
+body {
+      margin: 0;
+      overflow-x: hidden;
+}
+
+.site {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-top: var(--nav-h, 0);
+}
+
+main {
+      flex: 1;
+}
+

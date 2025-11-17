@@ -1,0 +1,47 @@
+// Layout
+$height: 3.25rem;
+$padding-vertical: 1rem;
+$padding-horizontal: 2rem;
+$z: 30;
+$fixed-z: 50;
+$navbar-breakpoint: var(--bulma-tablet);
+
+// Colors
+$background-color: var(--bulma-scheme-main);
+$box-shadow-color: var(--bulma-background);
+$burger-color: var(--bulma-item-color);
+$dropdown-background-color: var(--bulma-scheme-main);
+$dropdown-border-color: hsl(var(--bulma-h), var(--bulma-s), var(--bulma-dropdown-border-l));
+$dropdown-arrow: var(--bulma-link);
+$divider-background-l: var(--bulma-background-l);
+
+// Shadows & Borders
+$box-shadow-size: 0 0.125em 0 0;
+$bottom-box-shadow-size: 0 -0.125em 0 0;
+
+$dropdown-border-l: var(--bulma-border-l);
+$dropdown-border-style: solid;
+$dropdown-border-width: 0.125em;
+$dropdown-boxed-shadow: 0 0.5em 0.5em hsla(var(--bulma-scheme-h), var(--bulma-scheme-s), var(--bulma-scheme-invert-l), 0.1),
+  0 0 0 1px hsla(var(--bulma-scheme-h), var(--bulma-scheme-s), var(--bulma-scheme-invert-l), 0.1);
+
+// Dropdown
+$dropdown-offset: -0.25em;
+$dropdown-radius: var(--bulma-radius-large);
+$dropdown-z: 20;
+$dropdown-boxed-radius: var(--bulma-radius-large);
+
+// Tabs
+$tab-hover-background-color: transparent;
+$tab-active-background-color: transparent;
+$tab-hover-border-bottom-color: var(--bulma-link);
+$tab-active-color: var(--bulma-link);
+$tab-active-border-bottom-color: var(--bulma-link);
+$tab-hover-border-bottom-style: solid;
+$tab-hover-border-bottom-width: 0.09rem;
+$tab-active-border-bottom-style: solid;
+$tab-active-border-bottom-width: 0.18rem;
+
+// Elements
+$item-img-max-height: 2.5rem;
+$divider-height: 0.125em;

@@ -1,0 +1,34 @@
+{
+  "src/js/accordion.js": {
+    "file": "assets/accordion-CKb3EiEm.js",
+    "name": "accordion",
+    "src": "src/js/accordion.js",
+    "isDynamicEntry": true
+  },
+  "src/js/embla-carousel.js": {
+    "file": "assets/embla-carousel-DRdabeJe.js",
+    "name": "embla-carousel",
+    "src": "src/js/embla-carousel.js",
+    "isDynamicEntry": true
+  },
+  "src/js/main.js": {
+    "file": "assets/main-iC_WrGL0.js",
+    "name": "main",
+    "src": "src/js/main.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/js/accordion.js",
+      "src/js/search-filters.js",
+      "src/js/embla-carousel.js"
+    ],
+    "css": [
+      "assets/main-GYqIkBkW.css"
+    ]
+  },
+  "src/js/search-filters.js": {
+    "file": "assets/search-filters-X-r7Ypbf.js",
+    "name": "search-filters",
+    "src": "src/js/search-filters.js",
+    "isDynamicEntry": true
+  }
+}

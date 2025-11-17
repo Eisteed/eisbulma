@@ -1,0 +1,77 @@
+@use "bulma/sass/utilities/mixins" as *;
+
+body {
+	font-size: var(--bulma-body-font-size);
+	font-weight: var(--bulma-body-weight);
+	margin: 0;
+	color: var(--bulma-text);
+	font-family: var(--bulma-family-primary);
+	line-height: var(--bulma-body-line-height);
+}
+
+
+h1 , .content h1 {
+	font-size: var(--bulma-size-1);
+	color:var(--bulma-secondary);
+	font-weight:bold;
+	@include mobile{
+		font-size: calc(var(--bulma-size-1) * 0.8);
+	}
+}
+h2 , .content h2{
+	font-size: var(--bulma-size-2);
+	color:var(--bulma-secondary);
+	font-weight:normal;
+	@include mobile{
+		font-size: calc(var(--bulma-size-2) * 0.8);
+	}
+}
+h3 , .content h3 {
+	font-size: var(--bulma-size-3);
+	@include mobile{
+		font-size: calc(var(--bulma-size-3) * 0.8);
+	}
+}
+h4 , .content h4 {
+	font-size: var(--bulma-size-4);
+	@include mobile{
+		font-size: calc(var(--bulma-size-4) * 0.8);
+	}
+}
+h5 , .content h5 {
+	font-size: var(--bulma-size-5);
+	@include mobile{
+		font-size: calc(var(--bulma-size-5) * 0.8);
+	}
+}
+h6 , .content h6 {
+	font-size: var(--bulma-size-6);
+	@include mobile{
+		font-size: calc(var(--bulma-size-6) * 0.8);
+	}
+}
+
+p, .content p{
+	font-size: var(--bulma-body-font-size);
+	@include mobile{
+		font-size: calc(var(--bulma-body-font-size) * 0.8);
+	}
+}
+
+.title{
+	color: unset ;
+}
+strong{
+	color: inherit ;
+}
+
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: var(--bulma-text);
+	font-family: var(--bulma-family-primary);
+	font-weight: 400;
+	line-height: var(--bulma-body-line-height);
+}

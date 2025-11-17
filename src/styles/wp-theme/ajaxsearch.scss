@@ -1,0 +1,18 @@
+@use "bulma/sass/utilities/mixins" as *;
+
+#search-dropdown {
+    width: 100%;
+
+    .dropdown-menu {
+        position: absolute;
+        width: 100%;
+        right: 0;
+        left: 0;
+        max-height: 90vh;
+        overflow-y: auto;
+        width: 500px;
+        transform: translateX(-280px) translateY(5px);
+    }
+
+
+}

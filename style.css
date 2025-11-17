@@ -1,25 +1,26 @@
 /*
 Theme Name: eisbulma
-Theme URI: https://www.nilambar.net/2019/12/eisbulma-free-wordpress-theme.html
-Author: Nilambar Sharma
-Author URI: https://www.nilambar.net/
-Description: eisbulma is a simple blogging WordPress theme. With clean and minimal design it is mainly targeted for blogging sites. It uses the Bulma CSS framework. It is cross browser compatible and responsive and looks beautiful on any device and screen sizes. Due to its elegant design users will have a pleasant experience reading your blog posts and articles.
-Version: 3.0.0
+Theme URI: https://www.eisteed.com/eisbulma-wordpress-theme/
+Author: Aristide Chypre
+Author URI: https://www.eisteed.com/
+Description: Eisbulma theme for blog & woocommerce. It uses the Bulma CSS framework + Vite as a build tool for easy development and optimized production."
+Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: eisbulma
 Domain Path: /languages
 Requires at least: 6.0
 Tested up to: 6.6
-Requires PHP: 7.2
+Requires PHP: 8.2
 Tags: blog, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-eisbulma is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+eisbulma is a heavily modified version of Obulma by Nilambar Sharma https://nilambar.net/2019/12/obulma-free-wordpress-theme.html
+Obulma is distributed under the terms of the GNU GPL v2 or later.
+
+Obulma is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */

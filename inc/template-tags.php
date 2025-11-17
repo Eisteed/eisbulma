@@ -30,7 +30,10 @@ if (! function_exists('eisbulma_posted_on')) :
 			'<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo '<span class="has-icons-left is-small">
+				<span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#000000" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg></span>
+				</span>' . $posted_on . '</span>
+		  </span>';
 	}
 endif;
 
@@ -49,18 +52,17 @@ if (! function_exists('eisbulma_posted_by')) :
 	}
 endif;
 
-if (! function_exists('eisbulma_entry_footer')) :
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
-	function eisbulma_entry_footer()
+
+if (! function_exists('eisbulma_categories')) :
+
+	function eisbulma_categories()
 	{
 		// Hide category and tag text for pages.
 		if ('post' === get_post_type()) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list(esc_html_x(', ', 'list item separator', 'eisbulma'));
 			if ($categories_list) {
-				printf('<span class="cat-links">%1$s</span>', $categories_list); // phpcs:ignore WordPress.Security.EscapeOutput
+				printf('<span class="tag cat-links">%1$s</span>', $categories_list); // phpcs:ignore WordPress.Security.EscapeOutput
 			}
 
 			/* translators: used between list items, there is a space after the comma */
@@ -69,25 +71,15 @@ if (! function_exists('eisbulma_entry_footer')) :
 				printf('<span class="tags-links">%1$s</span>', $tags_list); // phpcs:ignore WordPress.Security.EscapeOutput
 			}
 		}
+	}
+endif;
 
-		if (! is_single() && ! post_password_required() && (comments_open() || get_comments_number())) {
-			echo '<span class="comments-link">';
-			comments_popup_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: post title */
-						__('Leave a Comment<span class="screen-reader-text"> on %s</span>', 'eisbulma'),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				)
-			);
-			echo '</span>';
-		}
+if (! function_exists('eisbulma_entry_footer')) :
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
+	function eisbulma_entry_footer()
+	{
 
 		edit_post_link(
 			sprintf(

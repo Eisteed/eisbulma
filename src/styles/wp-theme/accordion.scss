@@ -1,0 +1,31 @@
+.accordion-header {
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.25s ease;
+  padding: 0 0.2rem;
+  margin: 1rem 0;
+
+  h2 {
+    display: none;
+  }
+}
+
+.product-accordion .accordion-item {
+
+  scroll-margin-top: 80px;
+
+}
+
+/* adjust */
+
+
+.product-accordion .accordion-content.is-hidden {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}

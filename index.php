@@ -14,10 +14,6 @@
 
 get_header();
 ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-			<section class="section">
 		<?php
 		if ( have_posts() ) :
 			if ( is_home() && ! is_front_page() ) :
@@ -45,9 +41,6 @@ get_header();
 			get_template_part( 'template-parts/content', 'none' );
 		endif;
 		?>
-			</section>
-		</main><!-- #main -->
-	</div><!-- #primary -->
 
 <?php
 

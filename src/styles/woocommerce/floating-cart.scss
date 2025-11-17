@@ -1,0 +1,40 @@
+ @use "bulma/sass/utilities/mixins" as *;
+
+#floating-cart-panel {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 99999;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    @include mobile{
+    width: 100vw;
+    right: -100vw;
+    }
+}
+
+#floating-cart-panel.is-active {
+    right: 0 !important;
+}
+
+.cart-item-quantity {
+    max-width: 60px;
+}
+
+.cart-item-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+#floating-cart-contents {
+    padding-bottom: 120px;
+}
+
+.cart-item .content{
+    font-size:0.8rem;
+}

@@ -1,0 +1,58 @@
+{
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "autoprefixer": "^10.4.21",
+    "browsersync": "^0.0.1-security",
+    "concurrently": "^8.2.2",
+    "cross-env": "^10.1.0",
+    "cssnano": "^7.1.0",
+    "fast-glob": "^3.3.3",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "postcss-prune-var": "^1.1.2",
+    "postcss-variable-compress": "^3.0.0",
+    "sass": "^1.89.2",
+    "vite-plugin-full-reload": "^1.2.0"
+  },
+  "name": "eisbulma",
+  "version": "1.0.0",
+  "description": "Wordpress Theme using Bulma Css. \r Supports blocks, woocommerce, addonify floating cart.",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "concurrently \"vite\" \"npm run watch:editor\"",
+    "watch:editor": "sass --watch src/styles/gutenberg-editor-bulma.scss:src/styles/gutenberg-editor-bulma.css --no-source-map --load-path=node_modules",
+    "build:editor": "sass src/styles/gutenberg-editor-bulma.scss:src/styles/gutenberg-editor-bulma.css --no-source-map --load-path=node_modules",
+    "build": "cross-env NODE_ENV=production vite build",
+    "upload": "rclone sync ./ wolz:/www/wp-content/themes/eisbulma --exclude \"node_modules/**\" --exclude \".vscode/**\" --exclude \".git/**\" --delete-excluded",
+    "deploy": "npm run build:editor && npm run build && npm run upload",
+    "preview": "vite preview --host"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eisteed/eisbulma.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Eisteed/eisbulma/issues"
+  },
+  "homepage": "https://github.com/Eisteed/eisbulma#readme",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "bulma": "^1.0.4",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-auto-height": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0",
+    "glider-js": "^1.7.9",
+    "keen-slider": "^6.8.6",
+    "lucide": "^0.548.0",
+    "swiper": "^12.0.3",
+    "vite": "^7.1.4"
+  },
+  "main": "browsersync.config.js"
+}

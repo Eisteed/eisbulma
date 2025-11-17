@@ -1,0 +1,74 @@
+@use "bulma/sass/utilities/mixins" as *;
+
+
+
+.navbar {
+
+  border-bottom:1px solid var(--bulma-primary);
+}
+
+.navbar-brand {
+  max-height: var(--bulma-navbar-height);
+}
+
+.custom-logo-link {
+  display: flex;
+}
+
+
+#navigation-top-menu {
+  transition: transform 0.3s ease;
+}
+
+.navbar-menu.is-active {
+  @include touch {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+.navbar-item.search-bar {
+  @include touch {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// MULTI LEVEL DROPDOWN LAYOUT
+.navbar-item.is-hoverable:hover .navbar-dropdown .navbar-dropdown {
+  display: none;
+
+  @include touch {
+    display: contents !important;
+  }
+}
+
+.navbar-dropdown .navbar-item.is-hoverable:hover>.navbar-dropdown {
+  display: block;
+}
+
+.navbar-dropdown .navbar-item .navbar-dropdown {
+  top: -10px;
+  left: 100%;
+  position: absolute;
+  z-index: 100;
+  display: none;
+  white-space: nowrap;
+
+  @include touch {
+    display: block;
+    top: 0px;
+  }
+}
+
+.navbar-dropdown .navbar-item.has-dropdown {
+  padding: 0;
+}
+
+.navbar-dropdown .navbar-item.has-dropdown>.navbar-link {
+  width: 100%;
+}
+
+.navbar-dropdown .navbar-item.has-dropdown>.navbar-link:not(.is-arrowless) {
+  padding-right: 2.5em;
+}

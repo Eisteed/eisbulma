@@ -8,8 +8,11 @@
  */
 
 ?>
-
+<div class="container m-5 pt-5 pb-5">
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+
+	<?php eisbulma_post_thumbnail(); ?>
 	<header class="entry-header">
 		<?php
 
@@ -21,17 +24,15 @@
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
+			<div class="is-flex is-gap-1">
 				<?php
 				eisbulma_posted_on();
-				eisbulma_posted_by();
+				//eisbulma_posted_by();
+				eisbulma_entry_footer();
 				?>
-			</div><!-- .entry-meta -->
+			</div>
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-
-	<?php eisbulma_post_thumbnail(); ?>
-
 	<div class="entry-content content">
 		<?php the_excerpt(); ?>
 		<div class="more-link">
@@ -39,7 +40,6 @@
 		</div><!-- .more-link -->
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php eisbulma_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+<!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
+</div>

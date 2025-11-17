@@ -210,7 +210,7 @@ if (! class_exists('BulmaWP_Navbar_Walker')) {
 
 			$args = wp_parse_args($args, $defaults);
 
-			$classes[]   = 'navbar-item';
+			$classes[]   = 'navbar-item is-tab';
 			$class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
 			if ($args['has_children']) {
 				$class_names .= ' dropdown navbar-link';

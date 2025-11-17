@@ -1,0 +1,147 @@
+
+
+/* Simple Star Rating CSS */
+/* Conteneur étoiles */
+.woocommerce .comment-form-rating p.stars {
+  display: inline-flex;
+  gap: .25rem;
+  direction: ltr;
+  vertical-align: middle;
+  margin: .25rem 0;
+
+}
+
+/* Boutons étoile */
+.woocommerce .comment-form-rating p.stars a {
+  position: relative;
+  display: inline-block;
+  width: 1.6em;
+  height: 1.6em;
+  line-height: 1;
+  text-indent: -999em; /* le texte reste pour les SR */
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* étoile grise par défaut (mask SVG) */
+.woocommerce .comment-form-rating p.stars a::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-color: #ddd;
+  mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><path d="M25.326 10.137a1.001 1.001 0 0 0-.807-.68l-7.34-1.066l-3.283-6.651c-.337-.683-1.456-.683-1.793 0L8.82 8.391L1.48 9.457a1 1 0 0 0-.554 1.705l5.312 5.178l-1.254 7.31a1.001 1.001 0 0 0 1.451 1.054L13 21.252l6.564 3.451a1 1 0 0 0 1.451-1.054l-1.254-7.31l5.312-5.178a.998.998 0 0 0 .253-1.024z"/></svg>') center / contain no-repeat;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><path d="M25.326 10.137a1.001 1.001 0 0 0-.807-.68l-7.34-1.066l-3.283-6.651c-.337-.683-1.456-.683-1.793 0L8.82 8.391L1.48 9.457a1 1 0 0 0-.554 1.705l5.312 5.178l-1.254 7.31a1.001 1.001 0 0 0 1.451 1.054L13 21.252l6.564 3.451a1 1 0 0 0 1.451-1.054l-1.254-7.31l5.312-5.178a.998.998 0 0 0 .253-1.024z"/></svg>') center / contain no-repeat;
+}
+
+/* Hover : tout allume en jaune… */
+.woocommerce .comment-form-rating p.stars:hover a::before {
+  background-color: #ffc107;
+}
+/* …et on éteint celles après la survolée */
+.woocommerce .comment-form-rating p.stars a:hover ~ a::before {
+  background-color: #ddd;
+}
+
+/* État sélectionné via JS (.selected sur p.stars + .active sur les liens <= note) */
+.woocommerce .comment-form-rating p.stars.selected a::before,
+.woocommerce .comment-form-rating p.stars a.active::before {
+  background-color: #ffc107;
+}
+.woocommerce .comment-form-rating p.stars a.active ~ a::before {
+  background-color: #ddd;
+}
+
+/* Focus clavier visible */
+.woocommerce .comment-form-rating p.stars a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Fallback si mask non supporté : affiche un caractère ★ */
+@supports not (mask: url("")) {
+  .woocommerce .comment-form-rating p.stars a {
+    text-indent: 0;
+    width: auto; height: auto;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+  .woocommerce .comment-form-rating p.stars a::before {
+    content: "★";
+    position: static;
+    background: none;
+    color: #ddd;
+  }
+  .woocommerce .comment-form-rating p.stars:hover a::before,
+  .woocommerce .comment-form-rating p.stars.selected a::before,
+  .woocommerce .comment-form-rating p.stars a.active::before {
+    color: #ffc107;
+  }
+  .woocommerce .comment-form-rating p.stars a.active ~ a::before {
+    color: #ddd;
+  }
+}
+
+/* --- WooCommerce product rating: flat modern star look --- */
+
+.woocommerce .star-rating {
+  --star-size: 1rem;
+  --star-color: #ddd;
+  --star-active: #3c94ca; 
+  --star-gap: 0px;
+
+  display: block;
+  position: relative;
+  width: calc(var(--star-size) * 5 + var(--star-gap) * 4);
+  height: var(--star-size);
+  background:
+    repeating-linear-gradient(
+      to right,
+      var(--star-color) 0 calc(var(--star-size) - var(--star-gap)),
+      transparent calc(var(--star-size) - var(--star-gap)) var(--star-size)
+    );
+  mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><path d="M25.326 10.137a1.001 1.001 0 0 0-.807-.68l-7.34-1.066l-3.283-6.651c-.337-.683-1.456-.683-1.793 0L8.82 8.391L1.48 9.457a1 1 0 0 0-.554 1.705l5.312 5.178l-1.254 7.31a1.001 1.001 0 0 0 1.451 1.054L13 21.252l6.564 3.451a1 1 0 0 0 1.451-1.054l-1.254-7.31l5.312-5.178a.998.998 0 0 0 .253-1.024z"/></svg>') repeat-x center / var(--star-size);
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><path d="M25.326 10.137a1.001 1.001 0 0 0-.807-.68l-7.34-1.066l-3.283-6.651c-.337-.683-1.456-.683-1.793 0L8.82 8.391L1.48 9.457a1 1 0 0 0-.554 1.705l5.312 5.178l-1.254 7.31a1.001 1.001 0 0 0 1.451 1.054L13 21.252l6.564 3.451a1 1 0 0 0 1.451-1.054l-1.254-7.31l5.312-5.178a.998.998 0 0 0 .253-1.024z"/></svg>') repeat-x center / var(--star-size);
+  background-color: var(--star-color);
+}
+
+/* the filled part (span inside .star-rating) */
+.woocommerce .star-rating span {
+  display: block;
+  height: 100%;
+  background-color: var(--star-active);
+}
+
+/* Hide the text inside */
+.woocommerce .star-rating span strong,
+.woocommerce .star-rating span::before {
+  display: none;
+}
+
+/* optional alignment / text style tweaks */
+.woocommerce .woocommerce-product-rating {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  font-size: .9rem;
+  color: var(--star-active);
+}
+
+.woocommerce .woocommerce-product-rating .woocommerce-review-link {
+  color: var(--star-active);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .9em;
+}
+.woocommerce .woocommerce-product-rating .woocommerce-review-link:hover {
+  text-decoration: underline;
+}
+
+/* Hide the textual rating "Noté 5.00 sur 5…" but keep stars visible */
+.woocommerce .star-rating span {
+  font-size: 0;
+  color: transparent;
+}
+.woocommerce .star-rating span strong,
+.woocommerce .star-rating span::before {
+  display: none !important;
+}

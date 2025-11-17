@@ -1,0 +1,1 @@
+cd ./wp-content/themes/eisbulma/ && wp i18n make-pot . languages/eisbulma.pot
