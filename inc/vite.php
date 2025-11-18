@@ -63,14 +63,13 @@ function eisbulma_scripts()
     }
     $is_dev = defined('WP_ENV') && WP_ENV === 'development';
    
-    if ($is_dev && isViteRunning(){
+    if ($is_dev && isViteRunning()){
         $origin = 'https://' . parse_url(home_url(), PHP_URL_HOST) . ':5173';
         wp_enqueue_script('vite-client', $origin . '/@vite/client', [], null, true);
         wp_script_add_data('vite-client', 'type', 'module');
         wp_enqueue_script('eis-main', $origin . '/src/js/main.js', [], null, true);
         wp_script_add_data('eis-main', 'type', 'module');
         // Main.js will load all our scss
-        }
     } else {
         $entry = eis_manifest_entry('src/js/main.js');
         if ($entry) {
@@ -101,7 +100,7 @@ add_action('wp_enqueue_scripts', 'eisbulma_scripts', 10);
 add_action('enqueue_block_editor_assets', function () {
     $is_dev = defined('WP_ENV') && WP_ENV === 'development';
 
-    if ($is_dev && isViteRunning(){
+    if ($is_dev && isViteRunning()){
         // DEV MODE
         $origin = 'https://' . parse_url(home_url(), PHP_URL_HOST) . ':5173';
 

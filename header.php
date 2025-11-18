@@ -101,6 +101,6 @@
 			<div id="mainContainer" class="container">
 				<?php 
 				if ( ! ( is_product() || is_cart() || is_checkout() ||  is_account_page() || is_404() ) ) :
-					get_template_part( 'embla-carousel-header');
+					get_template_part( 'template-parts/embla-carousel-header');
 				endif; 
 				?>

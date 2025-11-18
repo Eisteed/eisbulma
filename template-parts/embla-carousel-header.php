@@ -1,17 +1,6 @@
-<?php
 
-/**
- * Template part for displaying embla carousel header
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package eisbulma
- */
-
-?>
-
-<div class="embla embla-carousel-header is-fullwidth-breakout">
-    <div class="embla__viewport">
+<div class="embla  is-fullwidth-breakout">
+    <div class="embla__viewport embla-carousel-header">
         <div class="embla__container">
             <?php
             $params = [
