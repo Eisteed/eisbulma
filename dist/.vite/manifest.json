@@ -12,7 +12,7 @@
     "isDynamicEntry": true
   },
   "src/js/main.js": {
-    "file": "assets/main-DDIgClbB.js",
+    "file": "assets/main-DKMVhh4p.js",
     "name": "main",
     "src": "src/js/main.js",
     "isEntry": true,
@@ -22,7 +22,7 @@
       "src/js/embla-carousel.js"
     ],
     "css": [
-      "assets/main-D7PQbGVq.css"
+      "assets/main-LpYpK8Es.css"
     ]
   },
   "src/js/search-filters.js": {

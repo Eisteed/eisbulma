@@ -15,7 +15,7 @@ add_action('init', 'enable_woocommerce_registration');
 
 if ( ! function_exists( 'myshop_wc_base_path' ) ) {
     function myshop_wc_base_path() {
-        return trailingslashit( get_stylesheet_directory() ) . 'hooks/woocommerce/';
+        return trailingslashit( get_template_directory() ) . 'hooks/woocommerce/';
     }
 }
 

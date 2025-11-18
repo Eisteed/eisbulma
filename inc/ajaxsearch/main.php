@@ -1,7 +1,7 @@
 <?php
-require_once get_stylesheet_directory() . '/inc/ajaxsearch/class-search-query.php';
-require_once get_stylesheet_directory() . '/inc/ajaxsearch/ajax-handler.php';
-require_once get_stylesheet_directory() . '/inc/ajaxsearch/settings.php';
+require_once get_template_directory() .  '/inc/ajaxsearch/class-search-query.php';
+require_once get_template_directory() .  '/inc/ajaxsearch/ajax-handler.php';
+require_once get_template_directory() . '/inc/ajaxsearch/settings.php';
 
 function eisbulma_ajax_search_vars() {
     //  "dummy" script just for vars

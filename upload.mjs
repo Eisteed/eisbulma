@@ -23,7 +23,6 @@ console.log('[Eisbulma] Running: rclone sync');
 
 const res = spawnSync('rclone', args, {
   stdio: 'inherit',
-  // shell: false par défaut → plus de warning
 });
 
 process.exit(res.status ?? 0);

@@ -10,7 +10,7 @@ add_editor_style('src/styles/gutenberg-editor-bulma.css');
 add_action('enqueue_block_editor_assets', function () {
     wp_enqueue_script(
         'gutenberg-editor-bulma-js',
-        get_stylesheet_directory_uri() . '/src/js/gutenberg-editor-bulma.js',
+        get_template_directory_uri() . '/src/js/gutenberg-editor-bulma.js',
         ['wp-hooks', 'wp-compose', 'wp-element'],
         '1.0.0',
         true
@@ -21,7 +21,7 @@ add_filter('render_block', 'replace_block_classes', 999, 2);
 
 function get_class_mappings()
 {
-    $json_path = get_stylesheet_directory() . '/src/styles/bulma-blocks.json';
+    $json_path = get_template_directory() . '/src/styles/bulma-blocks.json';
 
     if (!file_exists($json_path)) {
         return [];

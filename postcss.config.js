@@ -56,8 +56,8 @@ module.exports = {
       },
 
       // remove unless you truly need ALL animations/vars
-      keyframes: false,
-      variables: false,
+      keyframes: true,
+      variables: true,
       fontFace: true,
 
       // robust extractor for PHP/JS
