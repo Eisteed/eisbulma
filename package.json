@@ -17,9 +17,11 @@
   },
   "name": "eisbulma",
   "version": "1.0.0",
-  "description": "Wordpress Theme using Bulma Css. \r Supports blocks, woocommerce, addonify floating cart.",
-  "directories": {
-    "lib": "lib"
+  "description": "Wordpress Theme using Bulma Css. \r Supports blocks, woocommerce.",
+    "config": {
+    "hostname": "",
+    "username": "",
+    "buildNumber": 42
   },
   "scripts": {
     "dev": "concurrently \"vite\" \"npm run watch:editor\"",
@@ -53,6 +55,5 @@
     "lucide": "^0.548.0",
     "swiper": "^12.0.3",
     "vite": "^7.1.4"
-  },
-  "main": "browsersync.config.js"
+  }
 }

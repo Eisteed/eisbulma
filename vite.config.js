@@ -1,15 +1,19 @@
 import { defineConfig } from 'vite';
 import path from 'path';
+import os from "os";
 import fullReload from 'vite-plugin-full-reload';
 import { readFileSync } from 'node:fs';
+const home = os.homedir();
 
 // ====== Site Config ======
-const HOST = 'local.wp';
-const username = 'username';
+const HOST = 'wolz.local';
 
+const SSL_DIR = path.join(
+  home,"AppData","Roaming","Local","run","router","nginx","certs"
+);
 const PORT = 5173;
-const HTTPS_KEY_PATH = `C:/Users/${username}/AppData/Roaming/Local/run/router/nginx/certs/${HOST}.key`;
-const HTTPS_CERT_PATH = `C:/Users/${username}/AppData/Roaming/Local/run/router/nginx/certs/${HOST}.crt`;
+const HTTPS_KEY_PATH = path.join(SSL_DIR, `${HOST}.key`);
+const HTTPS_CERT_PATH = path.join(SSL_DIR, `${HOST}.crt`);
 // ==========================
 
 export default defineConfig(({ command }) => {

@@ -15,9 +15,8 @@ module.exports = {
         '!./node_modules/**',
       ],
 
-      // Use the modern shape to be explicit
       safelist: {
-        // exact classes you know are toggled dynamically by WP/Bulma/JS at runtime
+
         standard: [
           // WP defaults
           'alignleft', 'alignright', 'aligncenter', 'alignwide', 'alignfull',
@@ -39,15 +38,21 @@ module.exports = {
           "modal", "modal-background",
 
           // Content stuff that can be used in gutenberg
-          'columns', 'column', 'content', 'blockquote', 'pre', 'p', 'ul', 'ol', 'dl', 
-          'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'table', 'thead', 'tfoot', 'tbody', 'tr', 'th', 'td', 
+          'columns', 'column', 'content', 'blockquote', 'pre', 'p', 'ul', 'ol', 'dl',
+          'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'table', 'thead', 'tfoot', 'tbody', 'tr', 'th', 'td',
           'img', 'video', 'figure', 'figcaption', 'abbr', 'code', 'sup', 'sub', 'strong', 'em', 'small', 'a',
 
           // WooCommerce — keep everything starting with woocommerce
           /^woocommerce/,
-          'flex-control-nav.flex-control-thumbs'
+          'flex-control-nav.flex-control-thumbs',
+
+          // Custom
+          'is-fullwidth-breakout',
         ],
-        deep: [/\.woocommerce\b/],
+        deep: [
+          /\.woocommerce\b/,
+          /\.embla\b/,
+        ],
       },
 
       // remove unless you truly need ALL animations/vars

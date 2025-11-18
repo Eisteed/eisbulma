@@ -101,6 +101,6 @@
 			<div id="mainContainer" class="container">
 				<?php 
 				if ( ! ( is_product() || is_cart() || is_checkout() ||  is_account_page() || is_404() ) ) :
-				echo do_shortcode( '[fluent_snippet id="1-frontend-pods-slider-banniere"]' ); 
+					get_template_part( 'embla-carousel-header');
 				endif; 
 				?>
