@@ -1,1 +1,1 @@
-cd ./wp-content/themes/eisbulma/ && wp i18n make-pot . languages/eisbulma.pot
+cd ./wp-content/themes/eisbulma/ && wp i18n make-pot . languages/eisbulma.pot && wp i18n make-json languages --no-purge

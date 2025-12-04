@@ -19,19 +19,10 @@
 	<?php //eisbulma_post_thumbnail(); 
 	?>
 
-	<?php if (
-		function_exists('is_woocommerce')
-		&& (
-			is_woocommerce()
-			|| (function_exists('is_cart') && is_cart())
-			|| (function_exists('is_checkout') && is_checkout())
-			|| (function_exists('is_account_page') && is_account_page())
-		)
-	) : ?>
-		<div class="entry-content">
-		<?php else : ?>
+
+
 			<div class="entry-content content section">
-			<?php endif; ?>
+
 
 			<?php
 			the_content();

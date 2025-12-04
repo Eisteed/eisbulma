@@ -5,7 +5,7 @@ defined('ABSPATH') or die('No direct access allowed!');
 class WP_AJAX_Search_Query {
     public static function init() {
         // Hook into the main search query
-        add_action('pre_get_posts', [__CLASS__, 'modify_search_query']);
+        // add_action('pre_get_posts', [__CLASS__, 'modify_search_query']);
     }
     
     public static function modify_search_query($query) {

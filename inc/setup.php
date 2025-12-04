@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if (! defined('eisbulma_VERSION')) {
 	define('eisbulma_VERSION', '1.0.0');
@@ -22,30 +22,15 @@ if (! function_exists('eisbulma_setup')) :
 		 */
 		load_theme_textdomain('eisbulma', get_template_directory() . '/languages');
 
-		// Add default posts and comments RSS feed links to head.
 		add_theme_support('automatic-feed-links');
-
-		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
 		add_theme_support('title-tag');
-
-		/*
-		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		 */
 		add_theme_support('post-thumbnails');
 
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus(
-			array(
-				'menu-1' => esc_html__('Primary', 'eisbulma'),
-			)
-		);
+		// Déclaration des emplacements de menus
+		register_nav_menus(array(
+			'menu-1'      => esc_html__('Header', 'eisbulma'),
+			'footer_menu' => esc_html__('Footer', 'eisbulma'),
+		));
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -62,41 +47,8 @@ if (! function_exists('eisbulma_setup')) :
 			)
 		);
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'eisbulma_custom_background_args',
-				array(
-					'default-color' => 'ffffff',
-					'default-image' => '',
-				)
-			)
-		);
-
-		add_theme_support(
-			'custom-header',
-			apply_filters(
-				'eisbulma_custom_header_args',
-				array(
-					'default-image'      => '',
-					'default-text-color' => '000000',
-					'width'              => 1900,
-					'height'             => 450,
-					'flex-height'        => true,
-					'header-text'        => false,
-				)
-			)
-		);
-
-		// Add theme support for selective refresh for widgets.
 		add_theme_support('customize-selective-refresh-widgets');
 
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
 		add_theme_support(
 			'custom-logo',
 			array(
@@ -112,19 +64,14 @@ if (! function_exists('eisbulma_setup')) :
 
 		// Add support for responsive embeds.
 		add_theme_support('responsive-embeds');
+
+		// WooCommerce support
+		add_theme_support('woocommerce');
+		add_theme_support('wc-product-gallery-zoom');
+		add_theme_support('wc-product-gallery-lightbox');
+		add_theme_support('wc-product-gallery-slider');
 	}
 
 endif;
 
 add_action('after_setup_theme', 'eisbulma_setup');
-
-function after_setup()
-{
-	// WooCommerce support
-	add_theme_support('woocommerce');
-	add_theme_support('wc-product-gallery-zoom');
-	add_theme_support('wc-product-gallery-lightbox');
-	add_theme_support('wc-product-gallery-slider');
-}
-add_action('after_setup_theme', 'after_setup');
-

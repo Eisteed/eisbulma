@@ -7,6 +7,19 @@ class WP_AJAX_Search_Settings {
         // Add settings page
         add_action('admin_menu', [__CLASS__, 'add_settings_page']);
         add_action('admin_init', [__CLASS__, 'register_settings']);
+        add_action('admin_enqueue_scripts', [__CLASS__, 'enqueue_admin_styles']);
+    }
+
+    public static function enqueue_admin_styles($hook) {
+        if ($hook !== 'settings_page_wp-ajax-search') {
+            return;
+        }
+        wp_enqueue_style(
+            'wp-ajax-search-settings-style',
+            get_template_directory_uri() . '/src/styles/admin/ajax-search-settings.css',
+            [],
+            '1.0.0'
+        );
     }
     
     public static function add_settings_page() {
@@ -69,121 +82,14 @@ class WP_AJAX_Search_Settings {
     
     public static function render_settings_page() {
         ?>
-        <style>
-        /* WP AJAX Search Settings Admin Styling */
-        .wp-ajax-search-settings {
-            display: flex;
-            gap: 40px;
-            margin: 20px 0;
-        }
-        
-        .settings-column {
-            flex: 1;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .settings-column + .settings-column {
-            border-left: 1px solid #ddd;
-        }
-        
-        .settings-column h2 {
-            margin-top: 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #0073aa;
-            color: #23282d;
-        }
-        
-        .form-table {
-            margin-top: 0;
-        }
-        
-        .form-table th {
-            width: 180px;
-            padding: 15px 10px 15px 0;
-        }
-        
-        .form-table td label {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
-        
-        .form-table td label input[type="number"] {
-            width: 60px;
-            margin-left: 10px;
-            padding: 4px 8px;
-        }
-        
-        .form-table td label input[type="checkbox"] {
-            margin-right: 8px;
-        }
-        
-        .form-table td select {
-            min-width: 200px;
-        }
-        
-        .form-table td p small {
-            color: #666;
-            display: block;
-            margin-top: 5px;
-        }
-        
-        .submit-row {
-            text-align: center;
-            margin: 20px 0;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-        }
-        .submit-row .submit {
-            text-align: center !important;
-        }
-        .submit-row .submit input[type="submit"] {
-            float: none !important;
-            margin-left: auto;
-            margin-right: auto;
-            display: inline-block;
-        }
-        
-        @media (max-width: 782px) {
-            .wp-ajax-search-settings {
-                flex-direction: column;
-            }
-            .settings-column + .settings-column {
-                border-left: none;
-                border-top: 1px solid #ddd;
-                margin-top: 20px;
-                padding-top: 20px;
-            }
-        }
-
-        .wp-ajax-search-coffee {
-            text-align: center;
-            margin: 40px 0 0 0;
-        }
-        
-        </style>
-
         <div class="wrap">
             <h1>WP AJAX Search Settings</h1>
             <form method="post" action="options.php">
-                <?php settings_fields('wp_ajax_search_settings'); ?>
-                <div class="wp-ajax-search-settings">
-                    <div class="settings-column">
-                        <h2>General Settings</h2>
-                        <?php self::render_general_section(); ?>
-                    </div>
-                    <div class="settings-column">
-                        <h2>Search Fields & Weighting</h2>
-                        <?php self::render_fields_section(); ?>
-                    </div>
-                </div>
-                <div class="submit-row">
-                    <?php submit_button(); ?>
-                </div>
+                <?php 
+                    settings_fields('wp_ajax_search_settings');
+                    do_settings_sections('wp-ajax-search');
+                    submit_button(); 
+                ?>
             </form>
             <div class="wp-ajax-search-coffee">
                 <p>If you find this plugin useful, please consider supporting its development:</p>

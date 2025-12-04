@@ -18,15 +18,15 @@
   "name": "eisbulma",
   "version": "1.0.0",
   "description": "Wordpress Theme using Bulma Css. \r Supports blocks, woocommerce.",
-    "config": {
+  "config": {
     "hostname": "",
     "username": "",
     "buildNumber": 42
   },
   "scripts": {
     "dev": "concurrently \"vite\" \"npm run watch:editor\"",
-    "watch:editor": "sass --watch src/styles/gutenberg-editor-bulma.scss:src/styles/gutenberg-editor-bulma.css --no-source-map --load-path=node_modules",
-    "build:editor": "sass src/styles/gutenberg-editor-bulma.scss:src/styles/gutenberg-editor-bulma.css --no-source-map --load-path=node_modules",
+    "watch:editor": "sass --watch src/styles/gutenberg-editor/gutenberg-editor-bulma.scss:src/styles/gutenberg-editor/gutenberg-editor-bulma.css --no-source-map --load-path=node_modules",
+    "build:editor": "sass src/styles/gutenberg-editor/gutenberg-editor-bulma.scss:src/styles/gutenberg-editor/gutenberg-editor-bulma.css --no-source-map --load-path=node_modules",
     "build": "cross-env NODE_ENV=production vite build",
     "upload": "node upload.mjs",
     "deploy": "npm run build:editor && npm run build && npm run upload",
@@ -47,6 +47,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "bulma": "^1.0.4",
+    "dotenv": "^17.2.3",
     "embla-carousel": "^8.6.0",
     "embla-carousel-auto-height": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",

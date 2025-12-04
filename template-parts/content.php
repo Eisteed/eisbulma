@@ -10,8 +10,7 @@
 ?>
 <div class="container m-5 pt-5 pb-5">
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-
+	
 	<?php eisbulma_post_thumbnail(); ?>
 	<header class="entry-header">
 		<?php

@@ -12,17 +12,22 @@ class WP_AJAX_Search_Ajax {
     public static function ajax_search() {
         // Verify nonce
         check_ajax_referer('wp_ajax_search_nonce', 'nonce');
-        
-        // Get search term
+
         $search_term = isset($_REQUEST['s']) ? sanitize_text_field(wp_unslash($_REQUEST['s'])) : '';
+        $page = isset($_REQUEST['page']) ? max(1, intval($_REQUEST['page'])) : 1;
         
+        // Use a transient to cache results for the same query
+        $transient_key = 'ajax_search_' . md5($search_term . $page);
+        $cached_results = get_transient($transient_key);
+
+        if (false !== $cached_results) {
+            wp_send_json_success($cached_results);
+        }
+
         if (empty($search_term)) {
             wp_send_json_error(__('Please enter a search term', 'eisbulma'));
         }
         
-        // Get page number for pagination
-        $page = isset($_REQUEST['page']) ? max(1, intval($_REQUEST['page'])) : 1;
-
         // Get search fields from settings
         $search_fields = get_option('wp_ajax_search_fields', [
             'title' => 5,
@@ -146,13 +151,18 @@ class WP_AJAX_Search_Ajax {
             wp_reset_postdata();
         }
         
-        // Return JSON response
-        wp_send_json_success([
+        $response_data = [
             'results' => $results,
             'count' => $search_query->found_posts,
             'search_term' => $search_term,
             'page' => $page,
             'max_num_pages' => $search_query->max_num_pages
-        ]);
+        ];
+
+        // Cache the results for 5 minutes
+        set_transient($transient_key, $response_data, 5 * MINUTE_IN_SECONDS);
+
+        // Return JSON response
+        wp_send_json_success($response_data);
     }
 }

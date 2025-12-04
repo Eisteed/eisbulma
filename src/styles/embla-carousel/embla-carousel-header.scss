@@ -5,13 +5,16 @@
     .embla__slide {
       background-size: cover;
       background-position: center;
-      height: 14rem;
+      height: -moz-available;
+      height: -webkit-fill-available;
+      height: stretch;
     }
 
     .embla-slide-wrapper {
       max-width: 960px;
       padding: 2rem 0rem;
       width: 100%;
+      max-height: 14rem;
       margin: auto;
       display: flex;
       justify-content: center;

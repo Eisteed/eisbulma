@@ -2,7 +2,7 @@
 @use "size";
 @use "breakpoints";
 @use "typography";
-@use "custom";
+@use "extensions";
 @use "navbar";
 @use "footer";
 
@@ -32,8 +32,10 @@ $custom-colors: (
 @forward "bulma/sass/utilities/derived-variables" with ($custom-colors: $custom-colors,
   $primary: colors.$primary,
   $link: colors.$link,
-  $family-primary: typography.$family-primary);
 
+  $text-strong: typography.$text-strong,
+  $family-primary: typography.$family-primary);
+  
 // Remove anything unused
 @forward "bulma/sass/base";
 @forward "bulma/sass/components/breadcrumb";
@@ -43,14 +45,16 @@ $custom-colors: (
 @forward "bulma/sass/components/message";
 @forward "bulma/sass/components/modal";
 @forward "bulma/sass/components/navbar" with (
-  $navbar-breakpoint: breakpoints.$tablet,
+  $navbar-breakpoint: breakpoints.$navbar,
 );
 @forward "bulma/sass/components/pagination";
 @forward "bulma/sass/components/panel";
 @forward "bulma/sass/components/tabs";
 
 @forward "bulma/sass/elements";
-@forward "bulma/sass/form";
+@forward "bulma/sass/form" with (
+  $label-color: typography.$label-color,
+);
 @forward "bulma/sass/grid";
 @forward "bulma/sass/helpers";
 @forward "bulma/sass/layout/container";
@@ -60,7 +64,10 @@ $custom-colors: (
 @forward "bulma/sass/layout/hero";
 @forward "bulma/sass/layout/level";
 @forward "bulma/sass/layout/media";
-@forward "bulma/sass/layout/section";
+@forward "bulma/sass/layout/section" with (
+  $section-padding-medium: size.$section-padding-medium,
+  $section-padding-large: size.$section-padding-large
+  );
 
 // Light + Dark Theme
 //@forward "bulma/sass/themes";

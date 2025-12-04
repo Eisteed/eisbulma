@@ -5,6 +5,12 @@
     "src": "src/js/accordion.js",
     "isDynamicEntry": true
   },
+  "src/js/class-inject.js": {
+    "file": "assets/classInject-DfkK6Tlr.js",
+    "name": "classInject",
+    "src": "src/js/class-inject.js",
+    "isEntry": true
+  },
   "src/js/embla-carousel.js": {
     "file": "assets/embla-carousel-DRdabeJe.js",
     "name": "embla-carousel",
@@ -12,7 +18,7 @@
     "isDynamicEntry": true
   },
   "src/js/main.js": {
-    "file": "assets/main-DKMVhh4p.js",
+    "file": "assets/main-CoP9LeHA.js",
     "name": "main",
     "src": "src/js/main.js",
     "isEntry": true,
@@ -22,7 +28,7 @@
       "src/js/embla-carousel.js"
     ],
     "css": [
-      "assets/main-LpYpK8Es.css"
+      "assets/main-C0ceTcbw.css"
     ]
   },
   "src/js/search-filters.js": {

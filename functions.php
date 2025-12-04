@@ -1,81 +1,68 @@
 <?php
-
 /**
- * Functions and definitions
+ * Theme Functions and Definitions
  *
  * @package eisbulma
  */
 
+// Prevent direct access
+if (!defined('ABSPATH')) {
+    exit;
+}
 
+/**
+ * ========================================
+ * CORE THEME SETUP
+ * ========================================
+ */
+
+// Theme setup and configuration
 require get_template_directory() . '/inc/setup.php';
+
+// Vite build tool integration
 require get_template_directory() . '/inc/vite.php';
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
 
 /**
- * Functions which enhance the theme by hooking into WordPress.
+ * ========================================
+ * PERFORMANCE OPTIMIZATIONS
+ * ========================================
  */
-require get_template_directory() . '/inc/template-functions.php';
+
+// Performance: Debloat, critical CSS, lazy loading, etc.
+require get_template_directory() . '/inc/performance/_init.php';
 
 /**
- * Customizer additions.
+ * ========================================
+ * THIRD-PARTY INTEGRATIONS
+ * ========================================
  */
-require get_template_directory() . '/inc/customizer.php';
+
+// WordPress core customizations (template tags, helpers, customizer)
+require get_template_directory() . '/inc/wordpress/_init.php';
+
+// Custom walkers (navigation, comments)
+require get_template_directory() . '/inc/walkers/_init.php';
+
+// WebFont loader (GDPR-compliant local fonts)
+require get_template_directory() . '/inc/webfont-loader/_init.php';
+
+// WooCommerce integration and customizations
+require get_template_directory() . '/inc/hooks/woocommerce.php';
+
+// WordPress hooks and filters
+require get_template_directory() . '/inc/hooks/wordpress.php';
+
+// Gutenberg block editor customizations
+require get_template_directory() . '/inc/hooks/gutenberg/block-styles.php';
 
 /**
- * Load Nav Walker.
- */
-require get_template_directory() . '/lib/navwalker/navwalker.php';
-
-/**
- * Load Comment Walker.
- */
-require get_template_directory() . '/lib/commentwalker/commentwalker.php';
-
-/**
- * Load helpers.
- */
-require get_template_directory() . '/inc/helpers.php';
-
-/**
- * Load WebFont using wptt-webfont-loader
- */
-require get_template_directory() . '/inc/fonts.php';
-
-/**
- * Load Ajax Search
+ * ========================================
+ * THEME FEATURES
+ * ========================================
  */
 
-require get_template_directory() . '/inc/ajaxsearch/main.php';
+// Floating cart functionality
+require get_template_directory() . '/inc/cart/_init.php';
 
-/**
- * Load WooCommerce Mods Hooks
- */
-require get_template_directory() . '/hooks/woocommerce.php';
-
-/**
- * Load Post Archive Mods Hooks
- */
-require get_template_directory() . '/hooks/post-archive.php';
-
-/**
- * Load Block style
- */
-require get_template_directory() . '/hooks/gutenberg-blocks/bulma-blocks.php';
-
-
-/**
- * Load debloat (remove unused native wordpress stuff)
- */
-require get_template_directory() . '/inc/debloat.php';
-
-/**
- * Load Floating Cart
- */
-require get_template_directory() . '/inc/cart/cart.php';
-
-// Hide admin bar on frontend
-add_filter('show_admin_bar', '__return_false');
-
+// AJAX search functionality
+require get_template_directory() . '/inc/ajaxsearch/_init.php';

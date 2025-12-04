@@ -14,318 +14,113 @@ if (!defined('ABSPATH')) {
 class BulmaFloatingCart
 {
 
-    public function __init()
-    {
-        add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
-        add_action('wp_footer', array($this, 'render_floating_cart'));
-
-        // AJAX handlers for cart operations
-        add_action('wp_ajax_floating_cart_remove_item', array($this, 'remove_cart_item'));
-        add_action('wp_ajax_nopriv_floating_cart_remove_item', array($this, 'remove_cart_item'));
-
-        add_action('wp_ajax_floating_cart_update_quantity', array($this, 'update_cart_quantity'));
-        add_action('wp_ajax_nopriv_floating_cart_update_quantity', array($this, 'update_cart_quantity'));
-
-        add_action('wp_ajax_get_floating_cart_contents', array($this, 'get_cart_contents'));
-        add_action('wp_ajax_nopriv_get_floating_cart_contents', array($this, 'get_cart_contents'));
-
-        add_action('wp_ajax_get_cart_totals', array($this, 'get_cart_totals'));
-        add_action('wp_ajax_nopriv_get_cart_totals', array($this, 'get_cart_totals'));
-    }
-
-    public function enqueue_scripts()
-    {
-        if (!is_admin()) {
-            wp_enqueue_script('jquery');
+        public function __construct()
+        {
+            add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
+            add_action('wp_footer', array($this, 'render_floating_cart'));
+    
+            // AJAX handlers for cart operations
+            add_action('wp_ajax_floating_cart_remove_item', array($this, 'remove_cart_item'));
+            add_action('wp_ajax_nopriv_floating_cart_remove_item', array($this, 'remove_cart_item'));
+    
+            add_action('wp_ajax_floating_cart_update_quantity', array($this, 'update_cart_quantity'));
+            add_action('wp_ajax_nopriv_floating_cart_update_quantity', array($this, 'update_cart_quantity'));
+    
+            add_action('wp_ajax_get_floating_cart_contents', array($this, 'get_cart_contents'));
+            add_action('wp_ajax_nopriv_get_floating_cart_contents', array($this, 'get_cart_contents'));
+    
+            add_action('wp_ajax_get_cart_totals', array($this, 'get_cart_totals'));
+            add_action('wp_ajax_nopriv_get_cart_totals', array($this, 'get_cart_totals'));
         }
-    }
-
-    public function render_floating_cart()
-    {
-        if (!function_exists('WC') || is_admin()) {
-            return;
+    
+        public function enqueue_scripts()
+        {
+            if (!is_admin()) {
+                // wp_enqueue_script('jquery'); // no more jquery
+            }
         }
-
-        $cart_count = WC()->cart->get_cart_contents_count();
-        $cart_total = WC()->cart->get_cart_total();
-?>
-
-        <!-- Floating Cart Icon -->
-        <div id="floating-cart-icon" class="is-fixed" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-            <button class="button is-secondary is-medium is-rounded" id="open-floating-cart">
-                <span class="icon m-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#f0f0f0" viewBox="0 0 256 256">
-                        <path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Z"></path>
-                    </svg> </span>
-                <span class="tag is-small is-position-absolute" id="cart-count-badge" style="right: -0.3rem;top: -0.3rem;border: 1px solid #434343;"><?php echo $cart_count; ?></span>
-            </button>
-        </div>
-
-        <!-- Floating Cart Panel -->
-        <div id="floating-cart-panel" class="is-fixed">
-
-            <!-- Cart Header -->
-            <div class="box" style="border-radius: 0; border-bottom: 1px solid #dbdbdb; margin: 0;">
-                <div class="level is-mobile">
-                    <div class="level-left">
-                        <div class="level-item">
-                            <h4 class="title is-5"><?php esc_html_e('Shopping Cart', 'eisbulma'); ?></h4>
+    
+        public function render_floating_cart()
+        {
+            if (!function_exists('WC') || is_admin()) {
+                return;
+            }
+    
+            $cart_count = WC()->cart->get_cart_contents_count();
+            $cart_total = WC()->cart->get_cart_total();
+    ?>
+    
+            <!-- Floating Cart Icon -->
+            <div id="floating-cart-icon" class="is-fixed" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+                <button class="button is-secondary is-medium is-rounded" id="open-floating-cart">
+                    <span class="icon m-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#f0f0f0" viewBox="0 0 256 256">
+                            <path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Z"></path>
+                        </svg> </span>
+                    <span class="tag is-small is-position-absolute cart-count-badge" style="right: -0.3rem;top: -0.3rem;border: 1px solid #434343;"><?php echo $cart_count; ?></span>
+                </button>
+            </div>
+    
+            <!-- Floating Cart Panel -->
+            <div id="floating-cart-panel" class="is-fixed">
+    
+                <!-- Cart Header -->
+                <div class="box" style="border-radius: 0; border-bottom: 1px solid #dbdbdb; margin: 0;">
+                    <div class="level is-mobile">
+                        <div class="level-left">
+                            <div class="level-item">
+                                <h4 class="title is-5"><?php esc_html_e('Shopping Cart', 'eisbulma'); ?></h4>
+                            </div>
                         </div>
-                    </div>
-                    <div class="level-right">
-                        <div class="level-item">
-                            <button class="delete is-medium has-background-black" id="close-floating-cart"></button>
+                        <div class="level-right">
+                            <div class="level-item">
+                                <button class="delete is-medium has-background-black" id="close-floating-cart"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Cart Contents -->
-            <div id="floating-cart-contents" class="p-4">
-                <span class="loader"></span>
-                <!-- Cart items will be loaded here via AJAX -->
-            </div>
-
-            <!-- Cart Footer -->
-            <div class="box">
-                <div class="level is-mobile mb-3">
-                    <div class="level-left">
-                        <div class="level-item">
-                            <strong><?php esc_html_e('Total :', 'eisbulma'); ?> </strong>
+    
+                <!-- Cart Contents -->
+                <div id="floating-cart-contents" class="p-4">
+                    <span class="loader"></span>
+                    <!-- Cart items will be loaded here via AJAX -->
+                </div>
+    
+                <!-- Cart Footer -->
+                <div class="box">
+                    <div class="level is-mobile mb-3">
+                        <div class="level-left">
+                            <div class="level-item">
+                                <strong><?php esc_html_e('Total :', 'eisbulma'); ?> </strong>
+                            </div>
+                        </div>
+                        <div class="level-right">
+                            <div class="level-item">
+                                <span class="tag is-secondary is-medium" id="cart-total-display"><?php echo $cart_total; ?></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="level-right">
-                        <div class="level-item">
-                            <span class="tag is-secondary is-medium" id="cart-total-display"><?php echo $cart_total; ?></span>
-                        </div>
+    
+                    <div class="buttons">
+                        <a href="<?php echo wc_get_cart_url(); ?>" class="button is-light is-fullwidth">
+                            <span class="icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </span>
+                            <span><?php esc_html_e('View Cart', 'eisbulma'); ?></span>
+                        </a>
+                        <a href="<?php echo wc_get_checkout_url(); ?>" class="button is-secondary is-fullwidth">
+                            <span class="icon">
+                                <i class="fas fa-credit-card"></i>
+                            </span>
+                            <span><?php esc_html_e('Checkout', 'eisbulma'); ?></span>
+                        </a>
                     </div>
                 </div>
-
-                <div class="buttons">
-                    <a href="<?php echo wc_get_cart_url(); ?>" class="button is-light is-fullwidth">
-                        <span class="icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </span>
-                        <span><?php esc_html_e('View Cart', 'eisbulma'); ?></span>
-                    </a>
-                    <a href="<?php echo wc_get_checkout_url(); ?>" class="button is-secondary is-fullwidth">
-                        <span class="icon">
-                            <i class="fas fa-credit-card"></i>
-                        </span>
-                        <span><?php esc_html_e('Checkout', 'eisbulma'); ?></span>
-                    </a>
-                </div>
             </div>
-        </div>
-
-        <!-- Overlay -->
-        <div id="floating-cart-overlay" class="modal-background" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 1000;backdrop-filter: blur(2px);"></div>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const ajaxUrl = "<?php echo admin_url('admin-ajax.php'); ?>";
-
-                function postAjax(action, extra = {}) {
-                    const formData = new FormData();
-                    formData.append("action", action);
-                    Object.entries(extra).forEach(([k, v]) => formData.append(k, v));
-                    return fetch(ajaxUrl, {
-                        method: "POST",
-                        body: formData
-                    }).then(r => r.json());
-                }
-
-                // Open floating cart
-                const openFloatingCart = document.getElementById("open-floating-cart");
-                const floatingCartPanel = document.getElementById("floating-cart-panel");
-                const floatingCartOverlay = document.getElementById("floating-cart-overlay");
-                const floatingCartContents = document.getElementById("floating-cart-contents");
-
-                if (openFloatingCart && floatingCartPanel && floatingCartOverlay && floatingCartContents) {
-                    openFloatingCart.addEventListener("click", () => {
-                        floatingCartPanel.classList.add("is-active");
-                        floatingCartOverlay.style.display = "block";
-                        loadCartContents();
-                    });
-                }
-
-                // Close floating cart
-                const closeFloatingCart = document.getElementById("close-floating-cart");
-                if (closeFloatingCart && floatingCartOverlay && floatingCartPanel) {
-                    const closeFn = () => {
-                        floatingCartPanel.classList.remove("is-active");
-                        floatingCartOverlay.style.display = "none";
-                    };
-                    closeFloatingCart.addEventListener("click", closeFn);
-                    floatingCartOverlay.addEventListener("click", closeFn);
-                }
-
-                // Load cart contents
-                function loadCartContents() {
-                    const formData = new FormData();
-                    formData.append("action", "get_floating_cart_contents");
-
-                    fetch(ajaxUrl, {
-                            method: "POST",
-                            body: formData
-                        })
-                        .then(r => r.text())
-                        .then(text => {
-                            const i = text.indexOf("{");
-                            if (i > 0) {
-                                console.warn("Garbage avant JSON (longueur =", i, ")");
-                            }
-                            const json = JSON.parse(text.slice(i));
-                            if (json.success) {
-                                floatingCartContents.innerHTML = json.data.html;
-                                updateCartTotals();
-                            } else {
-                                floatingCartContents.textContent = "JSON success=false";
-                            }
-                        })
-                        .catch(err => {
-                            console.error("AJAX FAIL", err);
-                        });
-                }
-
-                // Update cart totals
-                function updateCartTotals() {
-                    postAjax("get_cart_totals").then(response => {
-                        if (!response || !response.success) return;
-
-                        const countBadge = document.getElementById("cart-count-badge");
-                        const totalDisplay = document.getElementById("cart-total-display");
-
-                        if (countBadge) countBadge.textContent = response.data.count;
-                        if (totalDisplay) totalDisplay.textContent = response.data.total;
-                    });
-                }
-
-                // Remove cart item + quantity +/- (event delegation)
-                document.addEventListener("click", e => {
-                    // Remove cart item
-                    const removeBtn = e.target.closest(".remove-cart-item");
-                    if (removeBtn) {
-                        e.preventDefault();
-                        e.stopPropagation();
-
-                        const cartKey = removeBtn.getAttribute("data-cart-key");
-                        const item = removeBtn.closest(".cart-item");
-
-                        if (!cartKey || !item) return;
-
-                        postAjax("floating_cart_remove_item", {
-                            cart_key: cartKey
-                        }).then(response => {
-                            if (response && response.success) {
-                                // simple fadeOut
-                                item.style.transition = "opacity 0.3s";
-                                item.style.opacity = "0";
-                                setTimeout(() => {
-                                    item.remove();
-                                    updateCartTotals();
-
-                                    const remainingItems = document.querySelectorAll(".cart-item").length;
-                                    if (remainingItems === 0 && floatingCartContents) {
-                                        floatingCartContents.innerHTML =
-                                            '<div class="has-text-centered p-4"><p><?php echo esc_js(__('Your cart is empty', 'eisbulma')); ?></p></div>';
-                                    }
-                                }, 300);
-                            }
-                        });
-                        return;
-                    }
-
-                    // Plus button
-                    const plusBtn = e.target.closest(".quantity-plus");
-                    if (plusBtn) {
-                        e.preventDefault();
-                        e.stopPropagation();
-
-                        const field = plusBtn.closest(".field");
-                        if (!field) return;
-                        const input = field.querySelector(".cart-item-quantity");
-                        if (!input) return;
-
-                        const currentVal = parseInt(input.value, 10) || 0;
-                        input.value = currentVal + 1;
-                        updateQuantity(input);
-                        return;
-                    }
-
-                    // Minus button
-                    const minusBtn = e.target.closest(".quantity-minus");
-                    if (minusBtn) {
-                        e.preventDefault();
-                        e.stopPropagation();
-
-                        const field = minusBtn.closest(".field");
-                        if (!field) return;
-                        const input = field.querySelector(".cart-item-quantity");
-                        if (!input) return;
-
-                        let currentVal = parseInt(input.value, 10) || 0;
-                        if (currentVal > 1) {
-                            currentVal -= 1;
-                            input.value = currentVal;
-                            updateQuantity(input);
-                        }
-                    }
-                });
-
-                // Update quantity on input change
-                document.addEventListener("change", e => {
-                    if (e.target.matches(".cart-item-quantity")) {
-                        e.preventDefault();
-                        updateQuantity(e.target);
-                    }
-                });
-
-                function updateQuantity(inputEl) {
-                    let quantity = parseInt(inputEl.value, 10);
-                    const cartKey = inputEl.getAttribute("data-cart-key");
-                    const item = inputEl.closest(".cart-item");
-
-                    if (!cartKey || !item) return;
-
-                    if (!quantity || quantity < 1) {
-                        quantity = 1;
-                        inputEl.value = 1;
-                    }
-
-                    postAjax("floating_cart_update_quantity", {
-                        cart_key: cartKey,
-                        quantity: quantity
-                    }).then(response => {
-                        if (response && response.success) {
-                            updateCartTotals();
-
-                            const itemTotalEl = item.querySelector(".item-total");
-                            const priceDisplayEl = item.querySelector(".price-display");
-
-                            if (itemTotalEl) itemTotalEl.textContent = response.data.item_total;
-                            if (priceDisplayEl) priceDisplayEl.textContent = response.data.price_display;
-                        }
-                    });
-                }
-
-                // Update cart icon when items are added
-                document.body.addEventListener("added_to_cart", () => {
-                    updateCartTotals();
-                });
-
-                // Update on floating cart events
-                document.addEventListener("addonifyFloatingCartUpdated", () => {
-                    updateCartTotals();
-                    if (floatingCartPanel && floatingCartPanel.classList.contains("is-active")) {
-                        loadCartContents();
-                    }
-                });
-
-                // Initial load
-                updateCartTotals();
-            });
-        </script>
+    
+            <!-- Overlay -->
+            <div id="floating-cart-overlay" class="modal-background" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 1000;backdrop-filter: blur(2px);"></div>
+    
 
 
         <?php
@@ -341,7 +136,7 @@ class BulmaFloatingCart
 
         if (empty($cart)) {
             wp_send_json_success(array(
-                'html' => '<div class="has-text-centered p-4"><p>Your cart is empty</p></div>'
+                'html' => '<div class="has-text-centered p-4"><p>'. esc_html(__('Your cart is empty', 'eisbulma')) .'</p></div>'
             ));
         }
 
@@ -453,6 +248,10 @@ class BulmaFloatingCart
 
     public function remove_cart_item()
     {
+        if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'floating_cart_nonce')) {
+            wp_send_json_error('Invalid nonce');
+        }
+
         if (!isset($_POST['cart_key'])) {
             wp_send_json_error('Missing cart key');
         }
@@ -468,6 +267,10 @@ class BulmaFloatingCart
 
     public function update_cart_quantity()
     {
+        if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'floating_cart_nonce')) {
+            wp_send_json_error('Invalid nonce');
+        }
+
         if (!isset($_POST['cart_key']) || !isset($_POST['quantity'])) {
             wp_send_json_error('Missing parameters');
         }
@@ -504,17 +307,16 @@ class BulmaFloatingCart
             wp_send_json_error('WooCommerce not available');
         }
 
-        $cart_count = WC()->cart->get_cart_contents_count();
-        $cart_total = html_entity_decode(strip_tags(WC()->cart->get_cart_total()), ENT_QUOTES, 'UTF-8');
+        // Use cached cart data for better performance
+        $cart_data = EisBulma_Cart_Cache::get_cart_data();
 
         wp_send_json_success(array(
-            'count' => $cart_count,
-            'total' => $cart_total
+            'count' => $cart_data['count'],
+            'total' => $cart_data['total']
         ));
     }
 }
 
 // Initialize the plugin
 $bulma_floating_cart = new BulmaFloatingCart();
-$bulma_floating_cart->__init();
 ?>

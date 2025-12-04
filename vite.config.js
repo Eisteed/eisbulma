@@ -1,26 +1,29 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import path from 'path';
 import os from "os";
 import fullReload from 'vite-plugin-full-reload';
 import { readFileSync } from 'node:fs';
+
 const home = os.homedir();
 
-// ====== Site Config ======
-const HOST = 'wolz.local';
+export default defineConfig(({ mode, command }) => {
+  const env = loadEnv(mode, process.cwd(), '');
 
-const SSL_DIR = path.join(
-  home,"AppData","Roaming","Local","run","router","nginx","certs"
-);
-const PORT = 5173;
-const HTTPS_KEY_PATH = path.join(SSL_DIR, `${HOST}.key`);
-const HTTPS_CERT_PATH = path.join(SSL_DIR, `${HOST}.crt`);
-// ==========================
+  // ====== Site Config ======
+  const HOST = env.LOCAL_DOMAIN || 'test.local';
 
-export default defineConfig(({ command }) => {
+  const SSL_DIR = path.join(
+    home, "AppData", "Roaming", "Local", "run", "router", "nginx", "certs"
+  );
+  const PORT = 5173;
+  const HTTPS_KEY_PATH = path.join(SSL_DIR, `${HOST}.key`);
+  const HTTPS_CERT_PATH = path.join(SSL_DIR, `${HOST}.crt`);
+  // ==========================
+
   const isDev = command === 'serve';
 
   return {
-    root: '.', // theme root
+    root: '.',
     base: isDev ? '/' : '/wp-content/themes/eisbulma/dist/',
 
     build: {
@@ -32,6 +35,7 @@ export default defineConfig(({ command }) => {
       rollupOptions: {
         input: {
           main: path.resolve(__dirname, 'src/js/main.js'),
+          classInject: path.resolve(__dirname, 'src/js/class-inject.js'),
         },
       },
     },
@@ -40,9 +44,7 @@ export default defineConfig(({ command }) => {
       devSourcemap: true,
       preprocessorOptions: {
         scss: {
-          additionalData: `
-            @use "sass:math";
-          `,
+          additionalData: `@use "sass:math";`,
         },
       },
     },
@@ -60,6 +62,7 @@ export default defineConfig(({ command }) => {
         'template-parts/**/*.php',
         'template/**/*.php',
         'inc/**/*.php',
+        'hooks/**/*.php',
       ]),
     ],
 

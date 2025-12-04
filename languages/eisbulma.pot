@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-11-14T13:43:54+00:00\n"
+"POT-Creation-Date: 2025-11-28T22:36:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: eisbulma\n"
@@ -39,16 +39,16 @@ msgstr ""
 msgid "https://www.eisteed.com/"
 msgstr ""
 
-#: 404.php:17
+#: 404.php:15
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#: 404.php:19
+#: 404.php:17
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
-#: 404.php:21
-#: inc/helpers.php:90
+#: 404.php:19
+#: inc/helpers.php:94
 msgid "Home"
 msgstr ""
 
@@ -56,7 +56,12 @@ msgstr ""
 msgid "Post comment"
 msgstr ""
 
+#: footer.php:96
+msgid "All rights reserved"
+msgstr ""
+
 #: header.php:31
+#: template/page-pro.php:22
 msgid "Skip to content"
 msgstr ""
 
@@ -64,168 +69,208 @@ msgstr ""
 msgid "No posts found."
 msgstr ""
 
-#: inc/ajaxsearch/ajax-handler.php:20
+#: hooks/woocommerce/product-loop/ajax-filters.php:16
+msgid "Filters"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:68
+msgid "Filter products"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:74
+msgid "Order by"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:79
+msgid "Default"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:82
+msgid "Popularity"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:85
+msgid "Rating"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:88
+msgid "Newest"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:91
+msgid "Price: low to high"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:94
+msgid "Price: high to low"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:107
+msgid "Reset"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:112
+msgid "Category"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:116
+msgid "All categories"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:129
+msgid "Price range"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:144
+msgid "In stock"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:150
+msgid "On sale"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:156
+msgid "Minimum rating"
+msgstr ""
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:160
+msgid "Any"
+msgstr ""
+
+#. translators: %d: rating number
+#: hooks/woocommerce/product-loop/ajax-filters.php:164
+#, php-format
+msgid "%d★"
+msgstr ""
+
+#: inc/ajaxsearch/ajax-handler.php:28
 msgid "Please enter a search term"
 msgstr ""
 
-#: inc/helpers.php:73
-#: single.php:22
+#. translators: %d is the product quantity currently in the cart.
+#: inc/cart/add-to-cart-quantity.php:52
+#, php-format
+msgid "In Cart (%d)"
+msgstr ""
+
+#: inc/cart/floating-cart.php:72
+msgid "Shopping Cart"
+msgstr ""
+
+#: inc/cart/floating-cart.php:94
+msgid "Total :"
+msgstr ""
+
+#: inc/cart/floating-cart.php:109
+msgid "View Cart"
+msgstr ""
+
+#: inc/cart/floating-cart.php:115
+msgid "Checkout"
+msgstr ""
+
+#: inc/cart/floating-cart.php:139
+#: inc/vite.php:65
+msgid "Your cart is empty"
+msgstr ""
+
+#: inc/cart/floating-cart.php:169
+msgid "Remove item"
+msgstr ""
+
+#: inc/customizer.php:70
+msgid "Social Links"
+msgstr ""
+
+#: inc/customizer.php:106
+msgid "Contact"
+msgstr ""
+
+#: inc/customizer.php:108
+msgid "Contact information"
+msgstr ""
+
+#: inc/customizer.php:118
+msgid "Phone"
+msgstr ""
+
+#: inc/customizer.php:130
+#: inc/template-functions.php:63
+msgid "Email"
+msgstr ""
+
+#: inc/customizer.php:142
+msgid "Address"
+msgstr ""
+
+#: inc/helpers.php:46
 msgid "Previous"
 msgstr ""
 
-#: inc/helpers.php:77
-#: single.php:23
+#: inc/helpers.php:78
+#: inc/helpers.php:80
 msgid "Next"
 msgstr ""
 
 #: inc/setup.php:46
-msgid "Primary"
+msgid "Header"
 msgstr ""
 
-#: inc/template-functions.php:85
+#: inc/setup.php:47
+msgid "Footer"
+msgstr ""
+
+#: inc/template-functions.php:62
 msgid "Name"
 msgstr ""
 
-#: inc/template-functions.php:86
-msgid "Email"
-msgstr ""
-
-#: inc/template-functions.php:87
+#: inc/template-functions.php:64
 msgid "Website"
 msgstr ""
 
-#: inc/template-functions.php:92
+#: inc/template-functions.php:69
 msgid "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
 
-#: inc/template-functions.php:110
+#: inc/template-functions.php:87
 msgid "Comment"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:63
-#: inc/template-tags.php:69
+#: inc/template-tags.php:56
+#: inc/template-tags.php:62
 msgctxt "list item separator"
 msgid ", "
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:88
-#: template-parts/content-page.php:41
+#: inc/template-tags.php:81
+#: template-parts/content-page.php:46
+#: template-parts/content-single.php:71
 #, php-format
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#. translators: %s: item number in cart.
-#: inc/woocommerce/cart/add-to-cart-quantity.php:41
-#, php-format
-msgid "In Cart (%d)"
-msgstr ""
-
-#: inc/woocommerce/cart/add-to-cart-quantity.php:126
+#: inc/vite.php:64
 msgid "In Cart"
 msgstr ""
 
-#: inc/woocommerce/cart/floating-cart.php:72
-msgid "Shopping Cart"
+#: inc/vite.php:72
+#: src/js/ajax-search.js:52
+msgid "Searching..."
 msgstr ""
 
-#: inc/woocommerce/cart/floating-cart.php:94
-msgid "Total :"
+#: inc/vite.php:73
+msgid "Cart"
 msgstr ""
 
-#: inc/woocommerce/cart/floating-cart.php:109
-msgid "View Cart"
-msgstr ""
-
-#: inc/woocommerce/cart/floating-cart.php:115
-msgid "Checkout"
-msgstr ""
-
-#: inc/woocommerce/cart/floating-cart.php:231
-msgid "Your cart is empty"
-msgstr ""
-
-#: inc/woocommerce/cart/floating-cart.php:374
-msgid "Remove item"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:16
-msgid "Filters"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:68
-msgid "Filter products"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:74
-msgid "Category"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:78
-msgid "All categories"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:91
-msgid "Price range"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:106
-msgid "In stock"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:112
-msgid "On sale"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:118
-msgid "Minimum rating"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:122
-msgid "Any"
-msgstr ""
-
-#. translators: %d: rating number
-#: inc/woocommerce/product-loop/ajax-filters.php:126
-#, php-format
-msgid "%d★"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:137
-msgid "Order by"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:142
-msgid "Default"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:145
-msgid "Popularity"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:148
-msgid "Rating"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:151
-msgid "Newest"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:154
-msgid "Price: low to high"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:157
-msgid "Price: high to low"
-msgstr ""
-
-#: inc/woocommerce/product-loop/ajax-filters.php:170
-msgid "Reset"
+#: inc/vite.php:74
+#: src/js/ajax-search.js:76
+msgid "Found {count} results for \"{term}\""
 msgstr ""
 
 #. translators: %s: search query.
-#: search.php:22
+#: search.php:23
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""
@@ -253,25 +298,17 @@ msgstr ""
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:27
-#: template-parts/content-single.php:53
+#: template-parts/content-page.php:32
+#: template-parts/content-single.php:57
 msgid "Pages:"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content-single.php:40
+#: template-parts/content-single.php:44
 #, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: template-parts/content.php:39
+#: template-parts/content.php:38
 msgid "Read More"
-msgstr ""
-
-#. Template Name of the theme
-msgid "Woocommerce"
-msgstr ""
-
-#: src/js/ajaxsearch.js:51
-msgid "Searching..."
 msgstr ""

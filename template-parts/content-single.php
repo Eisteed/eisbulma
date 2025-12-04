@@ -10,9 +10,6 @@
 
 ?>
 
-
-
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="box is-shadowless entry-header">
 		<?php
@@ -36,18 +33,42 @@
 	<?php //eisbulma_post_thumbnail(); 
 	?>
 
-	<?php if (function_exists('is_account_page') && is_account_page()) : ?>
-			<div class="entry-content">
-		<?php else : ?>
-			<div class="entry-content content">
-		<?php endif; ?>
-			<?php
-			the_content(
 
+	<div class="entry-content content">
+		<?php
+		the_content(
+
+			sprintf(
+				wp_kses(
+					/* translators: %s: Name of current post. Only visible to screen readers */
+					__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'eisbulma'),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				get_the_title()
+			)
+		);
+
+		wp_link_pages(
+			array(
+				'before' => '<div class="page-links">' . esc_html__('Pages:', 'eisbulma'),
+				'after'  => '</div>',
+			)
+		);
+		?>
+	</div>
+
+	<?php if (get_edit_post_link()) : ?>
+		<div class="entry-footer">
+			<?php
+			edit_post_link(
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'eisbulma'),
+						__('Edit <span class="screen-reader-text">%s</span>', 'eisbulma'),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -55,40 +76,13 @@
 						)
 					),
 					get_the_title()
-				)
-			);
-
-			wp_link_pages(
-				array(
-					'before' => '<div class="page-links">' . esc_html__('Pages:', 'eisbulma'),
-					'after'  => '</div>',
-				)
+				),
+				'<span class="edit-link">',
+				'</span>'
 			);
 			?>
-			</div>
-
-			<?php if (get_edit_post_link()) : ?>
-				<div class="entry-footer">
-					<?php
-					edit_post_link(
-						sprintf(
-							wp_kses(
-								/* translators: %s: Name of current post. Only visible to screen readers */
-								__('Edit <span class="screen-reader-text">%s</span>', 'eisbulma'),
-								array(
-									'span' => array(
-										'class' => array(),
-									),
-								)
-							),
-							get_the_title()
-						),
-						'<span class="edit-link">',
-						'</span>'
-					);
-					?>
-				</div>
-			<?php endif; ?>
+		</div>
+	<?php endif; ?>
 
 </article>
 <!-- #post-<?php the_ID(); ?> -->

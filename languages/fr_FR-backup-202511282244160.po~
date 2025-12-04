@@ -1,0 +1,327 @@
+# Copyright (C) 2025 Aristide Chypre
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: eisbulma 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/eisbulma\n"
+"Last-Translator: \n"
+"Language-Team: Français\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-11-28T21:17:57+00:00\n"
+"PO-Revision-Date: 2025-11-28 22:24+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Domain: eisbulma\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Loco-Version: 2.8.0; wp-6.8.3; php-8.2.27"
+
+#. Theme Name of the theme
+#: style.css
+msgid "eisbulma"
+msgstr "eisbulma"
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://www.eisteed.com/eisbulma-wordpress-theme/"
+msgstr "https://www.eisteed.com/eisbulma-wordpress-theme/"
+
+#. Description of the theme
+#: style.css
+msgid ""
+"Eisbulma theme for blog & woocommerce. It uses the Bulma CSS framework + "
+"Vite as a build tool for easy development and optimized production.\""
+msgstr ""
+"Thème Eisbulma pour blog et woocommerce. Il utilise le framework CSS Bulma + "
+"Vite comme outil de construction pour un développement facile et une "
+"production optimisée.\""
+
+#. Author of the theme
+#: style.css
+msgid "Aristide Chypre"
+msgstr "Aristide Chypre"
+
+#. Author URI of the theme
+#: style.css
+msgid "https://www.eisteed.com/"
+msgstr "https://www.eisteed.com/"
+
+#: 404.php:15
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oups ! Cette page est introuvable."
+
+#: 404.php:17
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+"Il semble que rien n'ait été trouvé à cet endroit. Essayez peut-être de "
+"faire une recherche"
+
+#: 404.php:19 inc/helpers.php:94
+msgid "Home"
+msgstr "Accueil"
+
+#: comments.php:34
+msgid "Post comment"
+msgstr "Poster un commentaire"
+
+#: footer.php:96
+msgid "All rights reserved"
+msgstr "Tous droits réservés"
+
+#: header.php:31 template/page-pro.php:22
+msgid "Skip to content"
+msgstr "Skip to content"
+
+#: home.php:84
+msgid "No posts found."
+msgstr "Aucun poste n'a été trouvé."
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:16
+msgid "Filters"
+msgstr "Filtres"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:68
+msgid "Filter products"
+msgstr "Produits filtrants"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:74
+msgid "Order by"
+msgstr "Commander par"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:79
+msgid "Default"
+msgstr "Défaut"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:82
+msgid "Popularity"
+msgstr "Popularité"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:85
+msgid "Rating"
+msgstr "Evaluation"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:88
+msgid "Newest"
+msgstr "Le plus récent"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:91
+msgid "Price: low to high"
+msgstr "Prix : de bas en haut"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:94
+msgid "Price: high to low"
+msgstr "Prix : du plus élevé au plus bas"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:107
+msgid "Reset"
+msgstr "Remise à zéro"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:112
+msgid "Category"
+msgstr "Catégorie"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:116
+msgid "All categories"
+msgstr "Toutes les catégories"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:129
+msgid "Price range"
+msgstr "Fourchette de prix"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:144
+msgid "In stock"
+msgstr "En stock"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:150
+msgid "On sale"
+msgstr "En vente"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:156
+msgid "Minimum rating"
+msgstr "Cote minimale"
+
+#: hooks/woocommerce/product-loop/ajax-filters.php:160
+msgid "Any"
+msgstr "Tous"
+
+#. translators: %d: rating number
+#: hooks/woocommerce/product-loop/ajax-filters.php:164
+#, php-format
+msgid "%d★"
+msgstr "%d★"
+
+#: inc/ajaxsearch/ajax-handler.php:28
+msgid "Please enter a search term"
+msgstr "Veuillez saisir un terme de recherche"
+
+#. translators: %d is the product quantity currently in the cart.
+#: inc/cart/add-to-cart-quantity.php:52
+#, php-format
+msgid "In Cart (%d)"
+msgstr "Dans le panier (%d)"
+
+#: inc/cart/floating-cart.php:72
+msgid "Shopping Cart"
+msgstr "Panier d'achat"
+
+#: inc/cart/floating-cart.php:94
+msgid "Total :"
+msgstr "Total :"
+
+#: inc/cart/floating-cart.php:109
+msgid "View Cart"
+msgstr "Voir le panier"
+
+#: inc/cart/floating-cart.php:115
+msgid "Checkout"
+msgstr "Sortie de caisse"
+
+#: inc/cart/floating-cart.php:139 inc/vite.php:65
+msgid "Your cart is empty"
+msgstr "Votre panier est vide"
+
+#: inc/cart/floating-cart.php:169
+msgid "Remove item"
+msgstr "Supprimer l'article"
+
+#: inc/customizer.php:70
+msgid "Social Links"
+msgstr "Liens sociaux"
+
+#: inc/customizer.php:106
+msgid "Contact"
+msgstr "Contact"
+
+#: inc/customizer.php:108
+msgid "Contact information"
+msgstr "Informations sur les contacts"
+
+#: inc/customizer.php:118
+msgid "Phone"
+msgstr "Téléphone"
+
+#: inc/customizer.php:130 inc/template-functions.php:63
+msgid "Email"
+msgstr "Courriel"
+
+#: inc/customizer.php:142
+msgid "Address"
+msgstr "Adresse"
+
+#: inc/helpers.php:46
+msgid "Previous"
+msgstr "Précédent"
+
+#: inc/helpers.php:78 inc/helpers.php:80
+msgid "Next"
+msgstr "Suivant"
+
+#: inc/setup.php:46
+msgid "Header"
+msgstr "En-tête"
+
+#: inc/setup.php:47
+msgid "Footer"
+msgstr "Pied de page"
+
+#: inc/template-functions.php:62
+msgid "Name"
+msgstr "Nom"
+
+#: inc/template-functions.php:64
+msgid "Website"
+msgstr "Site web"
+
+#: inc/template-functions.php:69
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+"Enregistrer mon nom, mon adresse électronique et mon site web dans ce "
+"navigateur pour la prochaine fois que je ferai un commentaire."
+
+#: inc/template-functions.php:87
+msgid "Comment"
+msgstr "Commentaire"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:56 inc/template-tags.php:62
+msgctxt "list item separator"
+msgid ", "
+msgstr ","
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: inc/template-tags.php:81 template-parts/content-page.php:46
+#: template-parts/content-single.php:71
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "Modifier <span class=\"screen-reader-text\">%s</span>"
+
+#: inc/vite.php:64
+msgid "In Cart"
+msgstr "Dans le panier"
+
+#. translators: %s: search query.
+#: search.php:23
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Résultats de la recherche pour : %s"
+
+#: searchform.php:16
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr "Recherche &hellip ;"
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr "Rien n'a été trouvé"
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content-none.php:23
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Prêt à publier votre premier article ? <a href=\"%1$s\">Commencez ici</a>."
+
+#: template-parts/content-none.php:35
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Désolé, mais rien ne correspond à vos termes de recherche. Veuillez "
+"réessayer avec d'autres mots-clés."
+
+#: template-parts/content-none.php:41
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Il semble que nous ne puissions pas trouver ce que vous cherchez. La "
+"recherche peut peut-être vous aider."
+
+#: template-parts/content-page.php:32 template-parts/content-single.php:57
+msgid "Pages:"
+msgstr "Pages :"
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content-single.php:44
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Continuer la lecture<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: template-parts/content.php:38
+msgid "Read More"
+msgstr "Lire la suite"
+
+#: src/js/ajax-search.js:3
+msgid "Cart"
+msgstr "Chariot"
+
+#: src/js/ajax-search.js:54
+msgid "Searching..."
+msgstr "Recherche..."
+
+#: src/js/ajax-search.js:78
+msgid "Found {count} results for \"{term}\""
+msgstr "A trouvé {count} résultats pour \"{term}\""

@@ -38,3 +38,8 @@
 .cart-item .content{
     font-size:0.8rem;
 }
+
+// Cart count badge - hide when empty
+.cart-count-badge:empty {
+    display: none !important;
+}

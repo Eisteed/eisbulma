@@ -2,63 +2,72 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
-/* eslint-disable */
-(function () {
-	let container, button, menu, links, i, len;
 
-	container = document.getElementById('site-navigation');
-	if (!container) {
-		return;
-	}
+document.addEventListener('DOMContentLoaded', function () {
+	// Conteneur principal du menu
+	const container = document.getElementById('navigation-top-menu');
+	if (!container) return;
 
-	button = container.getElementsByTagName('button')[0];
-	if (typeof button === 'undefined') {
-		return;
-	}
+	// Bouton burger (WordPress/Bulma)
+	const button = container.querySelector('.navbar-burger');
+	if (!button) return;
 
-	menu = container.getElementsByTagName('ul')[0];
-
-	// Hide menu toggle button if menu is empty and return early.
-	if (typeof menu === 'undefined') {
+	// Menu principal (Bulma)
+	const menu = document.getElementById('main-menu'); // .navbar-menu
+	if (!menu) {
 		button.style.display = 'none';
 		return;
 	}
 
-	menu.setAttribute('aria-expanded', 'false');
-	if (menu.className.indexOf('nav-menu') === -1) {
-		menu.className += ' nav-menu';
+	// Marque le menu comme nav-menu (pour la logique de focus)
+	if (!menu.classList.contains('nav-menu')) {
+		menu.classList.add('nav-menu');
 	}
 
-	button.onclick = function () {
-		if (container.className.indexOf('toggled') !== -1) {
-			container.className = container.className.replace(' toggled', '');
-			button.setAttribute('aria-expanded', 'false');
-			menu.setAttribute('aria-expanded', 'false');
-		} else {
-			container.className += ' toggled';
-			button.setAttribute('aria-expanded', 'true');
-			menu.setAttribute('aria-expanded', 'true');
-		}
-	};
+	// ARIA initial
+	button.setAttribute('aria-expanded', 'false');
+	menu.setAttribute('aria-expanded', 'false');
 
-	// Get all the link elements within the menu.
-	links = menu.getElementsByTagName('a');
+	// --- Gestion burger Bulma + classes du premier script ---
 
-	// Each time a menu link is focused or blurred, toggle focus.
-	for (i = 0, len = links.length; i < len; i++) {
+	const burgers = container.querySelectorAll('.navbar-burger');
+	const menus = container.querySelectorAll('.navbar-menu');
+
+	burgers.forEach(burger => {
+		burger.addEventListener('click', function () {
+			// on décide de l'état global à appliquer
+			const willBeActive = !menu.classList.contains('is-active');
+
+			// Bulma : toggle .is-active sur tous les burgers + menus
+			burgers.forEach(b => b.classList.toggle('is-active', willBeActive));
+			menus.forEach(m => m.classList.toggle('is-active', willBeActive));
+
+			// Ancien script : classe .toggled sur le container
+			container.classList.toggle('toggled', willBeActive);
+
+			// ARIA
+			button.setAttribute('aria-expanded', willBeActive ? 'true' : 'false');
+			menu.setAttribute('aria-expanded', willBeActive ? 'true' : 'false');
+			// Empêche le scroll quand le menu est ouvert
+			document.documentElement.classList.toggle('is-clipped', willBeActive);
+		});
+	});
+
+	// --- Gestion focus clavier comme dans le premier script ---
+
+	const links = menu.getElementsByTagName('a');
+
+	for (let i = 0, len = links.length; i < len; i++) {
 		links[i].addEventListener('focus', toggleFocus, true);
 		links[i].addEventListener('blur', toggleFocus, true);
 	}
 
-	/**
-	 * Sets or removes .focus class on an element.
-	 */
 	function toggleFocus() {
 		let self = this;
 
-		// Move up through the ancestors of the current link until we hit .nav-menu.
+		// On remonte jusqu'à l'élément qui a .nav-menu
 		while (self && self.className.indexOf('nav-menu') === -1) {
-			// On li elements toggle the class .focus.
+			// Sur les <li>, on toggle .focus
 			if (self.tagName && self.tagName.toLowerCase() === 'li') {
 				if (self.className.indexOf('focus') !== -1) {
 					self.className = self.className.replace(' focus', '');
@@ -66,62 +75,44 @@
 					self.className += ' focus';
 				}
 			}
-
 			self = self.parentElement;
 		}
 	}
 
-	/**
-	 * Toggles `focus` class to allow submenu access on tablets.
-	 *
-	 * @param container
-	 */
-	(function (container) {
-		let touchStartFn,
-			i,
-			parentLink = container.querySelectorAll(
-				'.menu-item-has-children > a, .page_item_has_children > a'
-			);
+	// --- Gestion touch pour les sous-menus (tablettes / mobiles) ---
 
-		if ('ontouchstart' in window) {
-			touchStartFn = function (e) {
-				let menuItem = this.parentNode,
-					i;
+	(function (container) {
+		const parentLink = container.querySelectorAll(
+			'.menu-item-has-children > a, .page_item_has_children > a'
+		);
+
+		if ('ontouchstart' in window && parentLink.length) {
+			const touchStartFn = function (e) {
+				const menuItem = this.parentNode;
 
 				if (!menuItem.classList.contains('focus')) {
+					// 1er tap : on ouvre le sous-menu
 					e.preventDefault();
-					for (i = 0; i < menuItem.parentNode.children.length; ++i) {
-						if (menuItem === menuItem.parentNode.children[i]) {
-							continue;
+
+					// On enlève .focus sur les frères
+					const siblings = menuItem.parentNode.children;
+					for (let i = 0; i < siblings.length; i++) {
+						if (siblings[i] !== menuItem) {
+							siblings[i].classList.remove('focus');
 						}
-						menuItem.parentNode.children[i].classList.remove('focus');
 					}
 					menuItem.classList.add('focus');
 				} else {
+					// 2e tap : on referme
 					menuItem.classList.remove('focus');
 				}
 			};
 
-			for (i = 0; i < parentLink.length; ++i) {
+			for (let i = 0; i < parentLink.length; i++) {
 				parentLink[i].addEventListener('touchstart', touchStartFn, false);
 			}
 		}
 	})(container);
-})();
-/* eslint-enable */
-
-
-document.addEventListener('DOMContentLoaded', function () {
-	// Burger menu toggle
-	const burgers = document.querySelectorAll('.navbar-burger');
-	const menus = document.querySelectorAll('.navbar-menu');
-
-	burgers.forEach(burger => {
-		burger.addEventListener('click', function () {
-			burgers.forEach(b => b.classList.toggle('is-active'));
-			menus.forEach(m => m.classList.toggle('is-active'));
-		});
-	});
 
 	// Sub menu level 2
 	const submenus = document.querySelectorAll('.navbar-dropdown .navbar-item.has-dropdown');
@@ -154,16 +145,28 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
+
+// AUTO HIDE ON SCROLL DOWN / SHOW ON SCROLL UP
 var prevScrollpos = window.pageYOffset;
 var scrollThresholdTop = 250;
 var scrollAmountBackUp = 0;
 var nav = document.getElementById('navigation-top-menu');
 var hideTimeout;
-
+const adminBar = document.getElementById('wpadminbar');
+const adminBarHeight = adminBar ? parseInt(
+	getComputedStyle(document.documentElement)
+		.getPropertyValue('--wp-admin--admin-bar--height')
+) || 32 : 0;
 window.onscroll = function () {
 	var navbarMenu = document.querySelector('.navbar-menu.nav-menu.is-active');
 	var isNavbarExpanded = navbarMenu && navbarMenu.getAttribute('aria-expanded') === 'true';
-
+	if (window.innerWidth < 600 && adminBar) {
+		if (window.scrollY > adminBarHeight) {
+			nav.style.top = '0px';
+		} else {
+			nav.style.top = adminBarHeight + 'px';
+		}
+	}
 	if (!isNavbarExpanded) {
 		var currentScrollPos = window.pageYOffset;
 

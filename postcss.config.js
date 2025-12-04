@@ -30,12 +30,12 @@ module.exports = {
           'current-menu-ancestor', 'current-page-parent', 'current-page-ancestor',
           'sub-menu', 'children',
 
-          // Bulma state toggles & colors
-          'is-active', 'is-loading', 'is-hidden', 'is-visible', 'is-expanded', 'is-selected',
-          'is-primary', 'is-success', 'is-info', 'is-warning', 'is-danger', 'is-link',
+          // Bulma state toggles & colors & sizes
+          'is-active', 'is-loading', 'is-hidden', 'is-visible', 'is-expanded', 'is-selected', 'is-clipped',
+          'is-primary', 'is-success', 'is-info', 'is-warning', 'is-danger', 'is-link', 'is-small', 'is-medium', 'is-large',
 
           // Bulma modal
-          "modal", "modal-background",
+          'modal', 'modal-background',
 
           // Content stuff that can be used in gutenberg
           'columns', 'column', 'content', 'blockquote', 'pre', 'p', 'ul', 'ol', 'dl',
@@ -45,13 +45,17 @@ module.exports = {
           // WooCommerce — keep everything starting with woocommerce
           /^woocommerce/,
           'flex-control-nav.flex-control-thumbs',
+          'flex-control-nav', 'flex-control-thumbs',
+          'wc-block-components-button',
 
           // Custom
           'is-fullwidth-breakout',
+
         ],
-        deep: [
-          /\.woocommerce\b/,
-          /\.embla\b/,
+        greedy: [
+          /woocommerce/,
+          /embla/,
+          /aos/,
         ],
       },
 

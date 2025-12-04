@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	// ---- Modals ----
 	function openModal(el) {
 		if (!el) return;
-
 		el.classList.add('is-active');
+		html.classList.add('is-clipped');
 
 		const input = el.querySelector('input[name="s"]');
 		if (!input) return;
@@ -34,38 +34,33 @@ document.addEventListener('DOMContentLoaded', () => {
 				style.visibility !== 'hidden' &&
 				style.opacity !== '0';
 
-			if (isVisible) {
-				input.focus();
-			}
+			if (isVisible) input.focus();
 		};
 
-		// Try immediately
 		tryFocus();
-		// Try again after a short delay (for animation/display)
 		setTimeout(tryFocus, 100);
 	}
 
 	function closeModal(el) {
 		if (!el) return;
 		el.classList.remove('is-active');
+		html.classList.remove('is-clipped');
 	}
 
 	function closeAllModals() {
-		document.querySelectorAll('.modal.is-active').forEach(modal => {
-			closeModal(modal);
-		});
+		document.querySelectorAll('.modal.is-active').forEach(closeModal);
 	}
 
-	// Generic trigger handler
-	document.querySelectorAll('.js-modal-trigger').forEach(trigger => {
-		trigger.addEventListener('click', () => {
-			const modalId = trigger.dataset.target;
-			if (!modalId) return;
-
-			const target = document.getElementById(modalId);
-			openModal(target);
+	// Ouvre la modale ciblée via data-modal-target
+	document.querySelectorAll('[data-modal-target]').forEach(trigger => {
+		trigger.addEventListener('click', e => {
+			e.preventDefault();
+			const targetId = trigger.getAttribute('data-modal-target');
+			const modal = document.getElementById(targetId);
+			if (modal) openModal(modal);
 		});
 	});
+
 
 	// Close modal when clicking background, close buttons, etc.
 	const modalCloseSelectors = [

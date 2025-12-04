@@ -1,3 +1,12 @@
-#ajaxsearch-dropdown{
- position:static;
+#ajaxsearch-dropdown {
+    position: static;
+}
+
+.search-results {
+    .post-thumbnail {
+        img {
+            max-height: 15rem;
+            object-fit: contain;
+        }
+    }
 }

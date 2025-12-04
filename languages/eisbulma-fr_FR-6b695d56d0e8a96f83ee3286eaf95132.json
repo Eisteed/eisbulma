@@ -1,0 +1,24 @@
+{
+    "translation-revision-date": "2025-11-28 22:44+0000",
+    "generator": "Loco https://localise.biz/",
+    "source": "src/js/ajax-search.js",
+    "domain": "eisbulma",
+    "locale_data": {
+        "eisbulma": {
+            "": {
+                "domain": "",
+                "lang": "fr_FR",
+                "plural-forms": "nplurals=2; plural=n > 1;"
+            },
+            "Cart": [
+                "Panier"
+            ],
+            "Searching...": [
+                "Recherche en cours..."
+            ],
+            "Found {count} results for \"{term}\"": [
+                "{count} r\u00e9sultats pour \"{term}\""
+            ]
+        }
+    }
+}

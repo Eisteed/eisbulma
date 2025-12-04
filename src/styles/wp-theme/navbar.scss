@@ -1,10 +1,9 @@
 @use "bulma/sass/utilities/mixins" as *;
 
-
+// Custom Navbar Styles
 
 .navbar {
-
-  border-bottom:1px solid var(--bulma-primary);
+  border-bottom: 1px solid var(--bulma-primary);
 }
 
 .navbar-brand {
@@ -15,16 +14,12 @@
   display: flex;
 }
 
-
 #navigation-top-menu {
   transition: transform 0.3s ease;
 }
 
-.navbar-menu.is-active {
-  @include touch {
-    display: flex;
-    flex-direction: column-reverse;
-  }
+body.admin-bar #navigation-top-menu {
+  top: var(--wp-admin--admin-bar--height, 0px);
 }
 
 .navbar-item.search-bar {
@@ -33,6 +28,26 @@
     justify-content: center;
   }
 }
+
+
+// Animations
+
+.navbar-item {
+  .icon:hover {
+
+    a  {
+      transition: transform 0.2s;
+      transform: scale(1.13);
+    }
+  }
+}
+
+// Cart count badge - hide when empty
+.cart-count-badge:empty,
+.cart-count-badge[data-count="0"] {
+  display: none !important;
+}
+
 
 // MULTI LEVEL DROPDOWN LAYOUT
 .navbar-item.is-hoverable:hover .navbar-dropdown .navbar-dropdown {

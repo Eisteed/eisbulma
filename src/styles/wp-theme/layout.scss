@@ -2,16 +2,25 @@
 body {
       margin: 0;
       overflow-x: hidden;
+      padding-top: var(--nav-h, 0);
 }
 
 .site {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      padding-top: var(--nav-h, 0);
 }
 
 main {
       flex: 1;
 }
 
+
+.container{
+	max-width:1250px;
+}
+
+
+#wpadminbar{
+      z-index: 999999;
+}
