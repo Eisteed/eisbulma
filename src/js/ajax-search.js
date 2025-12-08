@@ -1,5 +1,3 @@
-console.log(eisbulma_i18n.searching);
-
 (function initAjaxSearch() {
 
 
