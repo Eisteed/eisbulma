@@ -1,14 +1,8 @@
+
+
 @media (max-width: var(--bulma-mobile)){
   .columns.reverse-on-mobile {     display: flex;
     flex-direction: column-reverse; }
-}
-
-
-/* Fallback for older browsers */
-.is-fullwidth-breakout{
-  width: 100vw !important;
-  margin-left: calc(50% - 50vw) !important;
-  margin-right: calc(50% - 50vw) !important;
 }
 
 /* Modern, more accurate: device viewport size */
@@ -18,6 +12,12 @@
     margin-left: calc(50% - 50dvw) !important;
     margin-right: calc(50% - 50dvw) !important;
   }
+}
+/* Fallback for older browsers */
+.is-fullwidth-breakout{
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
 }
 
 /* Centered Menu */

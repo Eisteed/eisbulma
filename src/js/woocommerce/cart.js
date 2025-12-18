@@ -145,6 +145,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const totalDisplay = document.getElementById("cart-total-display");
         if (totalDisplay) totalDisplay.innerHTML = totals.total;
+
+        // Hide/show floating cart icon on non-WooCommerce pages when cart is empty
+        const floatingCartIcon = document.getElementById("floating-cart-icon");
+        const isWooCommercePage = document.body.classList.contains('woocommerce') ||
+                                   document.body.classList.contains('woocommerce-page') ||
+                                   document.body.classList.contains('woocommerce-cart') ||
+                                   document.body.classList.contains('woocommerce-checkout') ||
+                                   document.body.classList.contains('woocommerce-account');
+
+        if (floatingCartIcon) {
+            if (totals.count === 0 && !isWooCommercePage) {
+                floatingCartIcon.style.display = 'none';
+            } else {
+                floatingCartIcon.style.display = '';
+            }
+        }
     }
 
     // ========================================
@@ -333,8 +349,30 @@ document.addEventListener("DOMContentLoaded", () => {
             const quantityInput = productForm.querySelector('input[name="quantity"]');
             const addToCartInput = productForm.querySelector('button[name="add-to-cart"], input[name="add-to-cart"]');
 
-            const productId = addToCartInput ? addToCartInput.value : (btn ? btn.getAttribute("data-product_id") : null);
+            // Check if it's a variable product
+            const variationIdInput = productForm.querySelector('input[name="variation_id"]');
+            const isVariableProduct = productForm.classList.contains('variations_form');
+
+            let productId = addToCartInput ? addToCartInput.value : (btn ? btn.getAttribute("data-product_id") : null);
             const quantity = quantityInput ? quantityInput.value : 1;
+
+            // For variable products, check if variation is selected
+            if (isVariableProduct) {
+                const variationId = variationIdInput ? variationIdInput.value : '';
+
+                console.log('Variable product detected. Variation ID:', variationId);
+
+                if (!variationId || variationId === '0' || variationId === '') {
+                    // No variation selected - show WooCommerce's default error handling
+                    console.log('No variation selected - cannot add to cart');
+                    btn.classList.remove("is-loading");
+                    return; // Don't submit, let WooCommerce handle the validation
+                }
+
+                productId = variationId; // Use variation ID for variable products
+                console.log('Using variation ID:', productId);
+            }
+
             btn.classList.add("is-loading");
 
             if (!productId) {
@@ -347,6 +385,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const formData = new FormData();
             formData.append('product_id', productId);
             formData.append('quantity', quantity);
+
+            // Add all form data (important for variable products with custom fields)
+            const formDataEntries = new FormData(productForm);
+            for (let [key, value] of formDataEntries.entries()) {
+                if (key !== 'add-to-cart' && key !== 'product_id' && key !== 'quantity') {
+                    formData.append(key, value);
+                }
+            }
 
             document.body.dispatchEvent(new CustomEvent('adding_to_cart', {
                 detail: { product_id: productId, quantity: quantity }

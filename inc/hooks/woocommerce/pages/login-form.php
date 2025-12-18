@@ -82,6 +82,6 @@ add_filter('woocommerce_form_field_args', function($args, $key, $value) {
 
 /**
  * Note: Bulma class injection for login/register forms is handled by
- * src/js/class-inject.js which automatically applies classes and structure
+ * src/js/styles/class-inject.js which automatically applies classes and structure
  * via MutationObserver for better performance and maintainability.
  */

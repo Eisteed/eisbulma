@@ -1,11 +1,16 @@
 // Main SCSS 
 import '../styles/theme.scss';
 
+// Custom JS per project/theme - auto-import all .js files in custom folder
+import.meta.glob('./custom/**/*.js', { eager: true });
+
 // JS Components
-import './bulma.js';
-import './bulma-navbar.js';
-import './ajax-search.js';
-import './cart.js';
+
+import './bulma/bulma.js';
+import './bulma/bulma-navbar.js';
+//import './bulma/bulma-tabs.js';
+import './ui/ajax-search.js';
+import './woocommerce/cart.js';
 //import './backtotop.js';
 
 // import AOS from 'aos';
@@ -14,24 +19,26 @@ import './cart.js';
 function init() {
 
   if (document.querySelector('.product-accordion')) {
-    import('./accordion.js');
+    import('./woocommerce/accordion.js');
   }
 
   if (document.getElementById('woo-filters-form')) {
-    import('./search-filters.js');
+    import('./woocommerce/search-filters.js');
   }
 
   if (document.querySelector('.embla__viewport')) {
-    import('./embla-carousel.js');
+    import('./ui/embla-carousel.js');
   }
 
-  // AOS.init({
-  //   duration: 500,
-  //   once: true, // Animate every time you scroll
-  //   easing: 'ease-in-out'
-  // });
+  //  AOS.init({
+  //    duration: 500,
+  //    once: true, // Animate every time you scroll
+  //    easing: 'ease-in-out'
+  //  });
 
 }
+
+
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);

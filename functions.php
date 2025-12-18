@@ -66,3 +66,12 @@ require get_template_directory() . '/inc/cart/_init.php';
 
 // AJAX search functionality
 require get_template_directory() . '/inc/ajaxsearch/_init.php';
+
+
+/**
+ * ========================================
+ * CUSTOM FEATURES (Per project/theme)
+ * ========================================
+ */
+
+require get_template_directory() . '/inc/custom.php';

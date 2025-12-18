@@ -102,7 +102,7 @@ function eisbulma_scripts()
         // replace http with ws, https with wss for the client
         $vite_server_url = str_replace(['http://', 'https://'], ['', ''], $vite_server_url);
         // class-inject loads early but as type="module" it won't block rendering
-        wp_enqueue_script('eis-class-inject', 'https://' . $vite_server_url . '/src/js/class-inject.js', [], null, false);  // head
+        wp_enqueue_script('eis-class-inject', 'https://' . $vite_server_url . '/src/js/styles/class-inject.js', [], null, false);  // head
 
         wp_enqueue_script('vite-client', 'https://' . $vite_server_url . '/@vite/client', [], null, true);
         wp_enqueue_script('eis-main', 'https://' . $vite_server_url . '/src/js/main.js',  null,  null, false);
@@ -112,7 +112,7 @@ function eisbulma_scripts()
         echo "<script>console.log('[EisBulma] Production mode');</script>";
 
         // 1) class-inject en premier
-        $class_entry = eis_manifest_entry('src/js/class-inject.js');
+        $class_entry = eis_manifest_entry('src/js/styles/class-inject.js');
         if ($class_entry && !empty($class_entry['js'])) {
             wp_enqueue_script(
                 'eis-class-inject',

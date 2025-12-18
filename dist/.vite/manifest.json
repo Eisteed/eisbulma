@@ -1,40 +1,40 @@
 {
-  "src/js/accordion.js": {
-    "file": "assets/accordion-CKb3EiEm.js",
-    "name": "accordion",
-    "src": "src/js/accordion.js",
-    "isDynamicEntry": true
-  },
-  "src/js/class-inject.js": {
-    "file": "assets/classInject-DfkK6Tlr.js",
-    "name": "classInject",
-    "src": "src/js/class-inject.js",
-    "isEntry": true
-  },
-  "src/js/embla-carousel.js": {
-    "file": "assets/embla-carousel-DRdabeJe.js",
-    "name": "embla-carousel",
-    "src": "src/js/embla-carousel.js",
-    "isDynamicEntry": true
-  },
   "src/js/main.js": {
-    "file": "assets/main-CsRSEHwz.js",
+    "file": "assets/main-DhcUt2Ln.js",
     "name": "main",
     "src": "src/js/main.js",
     "isEntry": true,
     "dynamicImports": [
-      "src/js/accordion.js",
-      "src/js/search-filters.js",
-      "src/js/embla-carousel.js"
+      "src/js/woocommerce/accordion.js",
+      "src/js/woocommerce/search-filters.js",
+      "src/js/ui/embla-carousel.js"
     ],
     "css": [
-      "assets/main-BNIk8Wi0.css"
+      "assets/main-C5YPGnT5.css"
     ]
   },
-  "src/js/search-filters.js": {
+  "src/js/styles/class-inject.js": {
+    "file": "assets/classInject-kpVNFZHT.js",
+    "name": "classInject",
+    "src": "src/js/styles/class-inject.js",
+    "isEntry": true
+  },
+  "src/js/ui/embla-carousel.js": {
+    "file": "assets/embla-carousel-DRdabeJe.js",
+    "name": "embla-carousel",
+    "src": "src/js/ui/embla-carousel.js",
+    "isDynamicEntry": true
+  },
+  "src/js/woocommerce/accordion.js": {
+    "file": "assets/accordion-CKb3EiEm.js",
+    "name": "accordion",
+    "src": "src/js/woocommerce/accordion.js",
+    "isDynamicEntry": true
+  },
+  "src/js/woocommerce/search-filters.js": {
     "file": "assets/search-filters-X-r7Ypbf.js",
     "name": "search-filters",
-    "src": "src/js/search-filters.js",
+    "src": "src/js/woocommerce/search-filters.js",
     "isDynamicEntry": true
   }
 }

@@ -170,3 +170,25 @@ function eisbulma_image_format_hints()
 	// Future: Add AVIF/WebP support detection and hints
 	// This is a placeholder for when you want to implement next-gen formats
 }
+
+/**
+ * Preload critical images on landing page
+ */
+function eisbulma_preload_landing_bg()
+{
+	// Only run on pages using the landing template
+	if (!is_page_template('templates/landing.php')) {
+		return;
+	}
+
+	// Preload mobile logo (LCP element on mobile)
+	$mobile_logo_url = get_template_directory_uri() . '/frontend/images/logo_text.png';
+	echo '<link rel="preload" as="image" href="' . esc_url($mobile_logo_url) . '" media="(max-width: 1023px)" fetchpriority="high">' . "\n";
+
+	// Preload the horaires background image from ACF field
+	$horaires_image = get_field('horaires_image', 2);
+	if ($horaires_image) {
+		echo '<link rel="preload" as="image" href="' . esc_url($horaires_image) . '" fetchpriority="low">' . "\n";
+	}
+}
+add_action('wp_head', 'eisbulma_preload_landing_bg', 2);
