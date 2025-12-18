@@ -1,8 +1,5 @@
   .woocommerce.single-product {
 
-      --maxvh: calc(80svh);
-      /* Maximum height for product images */
-
       .woocommerce-product-gallery {
           display: flex;
           flex-direction: column;
@@ -15,7 +12,7 @@
           max-width: 100%;
           width: auto;
           height: auto;
-          max-height: var(--maxvh);
+          max-height: 50vh;
           object-fit: contain;
           /* no cropping */
       }
@@ -61,6 +58,14 @@
           }
       }
 
+      .woocommerce-product-details__short-description {
+        font-size:var(--bulma-size-6);
+      }
+
+      .ppcp-messages{
+        display:none;
+      }
+      
       .pagination li {
           margin-top: 0;
       }

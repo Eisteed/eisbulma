@@ -47,7 +47,7 @@ global $product;
 
                 <?php 
                 if (wc_get_product()->get_short_description()) {
-                    echo '<div class="box">';
+                    echo '<div class="box mb-0">';
                     woocommerce_template_single_excerpt();
                     echo '</div>';
                 } 
