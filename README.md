@@ -7,7 +7,7 @@ Use vite to dev & build for production
 1. Use local-wp to run local wordpress site
 2. Clone repo to wp-content/theme folder
 3. npm init
-4. Edit vite.config.js & set const HOST & username 
+4. Copy .env.example and replace var (domain, colors, rclone remote path)
 5. **npm run dev**
 6. Navigate to your local-wp site check console to see if vite is running.
 6. **npm run build** to compile assets using vite (just stop vite to see local site using dist assets)
@@ -17,5 +17,4 @@ Use vite to dev & build for production
 
 *TO USE UPLOAD FEATURE :* 
 - Install rsync, configure your remote.
-- EDIT package.json line 29 and change remote name / path
-"upload": "rclone sync ./ remote:/www/wp-content/themes/eisbulma [...]
+- Set your remote path in .env
